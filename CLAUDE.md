@@ -8,8 +8,8 @@
 - **JAMAIS** de secrets, API keys, tokens, mots de passe dans le code
 - **JAMAIS** de fichiers .env committés (déjà dans .gitignore)
 - **JAMAIS** de credentials ou fichiers sensibles
-- Vérifier chaque commit avant push
-- Les fichiers `.claude/settings.local.json` sont exclus (préférences locales)
+- **Vérifier avant chaque push** : `grep -r "api_key\|secret\|password\|token\|sk-\|AKIA" src/`
+- Les fichiers `.claude/settings.local.json` et `.claude/conversations/` sont exclus
 - **Git push** : Uniquement quand l'utilisateur le demande explicitement
 
 ### Assets autorisés
@@ -20,17 +20,7 @@
 
 ## Vue d'ensemble
 
-Ce projet est un espace d'apprentissage et d'expérimentation pour **Remotion**, un framework React pour créer des vidéos programmatiquement.
-
-### Qu'est-ce que Remotion ?
-
-Remotion permet de créer des vidéos en utilisant du code React/TypeScript au lieu d'outils d'édition traditionnels. Chaque frame de la vidéo est rendue comme un composant React.
-
-**Avantages clés :**
-- Vidéos générées par code (reproductibles, versionnable)
-- Utilisation des compétences React existantes
-- Animations précises au frame près
-- Rendu côté serveur possible (AWS Lambda)
+Ce projet est un espace d'apprentissage pour **Remotion**, un framework React pour créer des vidéos programmatiquement.
 
 ---
 
@@ -43,156 +33,38 @@ remotion/
 │   │   ├── Root.tsx                    # Compositions (liste plate)
 │   │   ├── HelloWorld.tsx              # Ex1-1-HelloWorld
 │   │   ├── HelloWorld/                 # Composants réutilisables
-│   │   │   ├── Badge.tsx
-│   │   │   ├── Logo.tsx
-│   │   │   ├── Title.tsx
-│   │   │   ├── Subtitle.tsx
-│   │   │   └── constants.ts            # Couleurs, fonts (branding)
 │   │   └── exercises/
 │   │       ├── ex1-basics/             # Niveau 1 - Bases
-│   │       │   ├── Counter.tsx
-│   │       │   └── CounterComparison.tsx
 │   │       ├── ex2-sequencing/         # Niveau 2 - Séquencement
-│   │       │   ├── Slide.tsx
-│   │       │   ├── Slideshow.tsx
-│   │       │   ├── Intro.tsx
-│   │       │   ├── Outro.tsx
-│   │       │   └── VideoTemplate.tsx
 │   │       ├── ex3-media/              # Niveau 3 - Média
-│   │       │   ├── KenBurnsImage.tsx
-│   │       │   └── ImageShowcase.tsx
-│   │       ├── ex4-text/               # Niveau 4 - Texte (à venir)
-│   │       └── ...
+│   │       ├── ex4-text/               # Niveau 4 - Texte
+│   │       ├── ex5-branding/           # Niveau 5 - Branding
+│   │       └── ex6-infographics/       # Niveau 6 - Infographies
 │   ├── public/                         # Assets libres de droits
-│   │   ├── music.mp3                   # Pixabay
-│   │   ├── nature1.jpg                 # Unsplash
-│   │   ├── nature2.jpg                 # Unsplash
-│   │   └── nature3.jpg                 # Unsplash
 │   └── package.json
-├── CLAUDE.md                           # Documentation technique
+├── CLAUDE.md                           # Ce fichier
 ├── README.md                           # Guide de démarrage
-└── planning_apprentissage.md           # Plan des exercices
-```
-
-### Compositions disponibles
-
-Les compositions utilisent des IDs simples sans points (évite les bugs) :
-
-| ID | Description | Durée |
-|----|-------------|-------|
-| `Ex1-1-HelloWorld` | Template avec badge animé et musique | 5s |
-| `Ex1-2-CounterComparison` | 4 compteurs avec easings différents | 4s |
-| `Ex2-1-Slideshow` | 3 slides avec transitions fade | 5s |
-| `Ex2-2-VideoTemplate` | Template Intro/Contenu/Outro | 7s |
-| `Ex3-1-ImageShowcase` | Ken Burns effect sur 3 images | 7.6s |
-| `Dev-Logo` | Logo seul pour tests | 5s |
-
----
-
-## Concepts Fondamentaux
-
-### 1. Composition
-
-Une composition est une "vidéo" avec ses propriétés :
-
-```tsx
-<Composition
-  id="MonVideo"
-  component={MonComposant}
-  durationInFrames={150}  // 5 secondes à 30fps
-  width={1920}
-  height={1080}
-  fps={30}
-  defaultProps={{ titre: "Hello" }}
-/>
-```
-
-### 2. Hooks Essentiels
-
-| Hook | Description |
-|------|-------------|
-| `useCurrentFrame()` | Retourne le numéro de frame actuel (commence à 0) |
-| `useVideoConfig()` | Retourne `{ fps, durationInFrames, width, height }` |
-
-### 3. Animation avec `interpolate()`
-
-```tsx
-const frame = useCurrentFrame();
-const opacity = interpolate(frame, [0, 30], [0, 1], {
-  extrapolateRight: 'clamp',
-});
-```
-
-### 4. Animation avec `spring()`
-
-```tsx
-const scale = spring({
-  frame,
-  fps: videoConfig.fps,
-  config: {
-    damping: 200,
-  },
-});
+└── .gitignore                          # Exclut secrets, .env, node_modules
 ```
 
 ---
 
-## Composants Clés
+## Compositions disponibles
 
-### Mise en page
-
-| Composant | Usage |
-|-----------|-------|
-| `<AbsoluteFill>` | Conteneur plein écran pour superposer des éléments |
-| `<Sequence from={30}>` | Affiche le contenu à partir du frame 30 |
-| `<Series>` | Enchaîne des séquences automatiquement |
-
-### Média
-
-| Composant | Package | Usage |
-|-----------|---------|-------|
-| `<Video>` | `remotion` | Lecture vidéo |
-| `<Audio>` | `remotion` | Lecture audio |
-| `<Img>` | `remotion` | Images statiques |
-| `<Gif>` | `@remotion/gif` | GIFs animés synchronisés |
-
----
-
-## Séquencement
-
-### TransitionSeries (avec transitions)
-
-```tsx
-import { TransitionSeries, linearTiming } from "@remotion/transitions";
-import { fade } from "@remotion/transitions/fade";
-
-<TransitionSeries>
-  <TransitionSeries.Sequence durationInFrames={60}>
-    <Scene1 />
-  </TransitionSeries.Sequence>
-  <TransitionSeries.Transition
-    presentation={fade()}
-    timing={linearTiming({ durationInFrames: 30 })}
-  />
-  <TransitionSeries.Sequence durationInFrames={60}>
-    <Scene2 />
-  </TransitionSeries.Sequence>
-</TransitionSeries>
-```
-
----
-
-## Règles Importantes
-
-### À FAIRE
-- Utiliser `staticFile()` pour les assets du dossier `public/`
-- Utiliser `random(seed)` pour la randomisation (déterministe)
-- Toujours spécifier les unités de temps en frames
-
-### À NE PAS FAIRE
-- `Math.random()` - interdit (non déterministe)
-- Effets de bord non contrôlés dans les composants
-- IDs de composition avec des points (ex: `1.1-HelloWorld`) - utiliser des tirets
+| ID | Description | Durée | Format |
+|----|-------------|-------|--------|
+| `Ex1-1-HelloWorld` | Template avec badge animé et musique | 5s | 1920x1080 |
+| `Ex1-2-CounterComparison` | 4 compteurs avec easings différents | 4s | 1920x1080 |
+| `Ex2-1-Slideshow` | 3 slides avec transitions fade | 5s | 1920x1080 |
+| `Ex2-2-VideoTemplate` | Template Intro/Contenu/Outro | 7s | 1920x1080 |
+| `Ex3-1-ImageShowcase` | Ken Burns effect sur 3 images | 7.6s | 1920x1080 |
+| `Ex4-1-WordByWord` | Texte mot par mot style TikTok | 5s | 1920x1080 |
+| `Ex4-2-AnimatedQuote` | Citation animée style LinkedIn | 6s | 1080x1080 |
+| `Ex5-1-BrandKit` | Palette couleurs, typos, logo | 6s | 1920x1080 |
+| `Ex5-2-LowerThirds` | 3 variantes de bandeaux nom/titre | 10s | 1920x1080 |
+| `Ex6-1-AnimatedStats` | Compteurs, barres, donut charts | 6s | 1920x1080 |
+| `Ex6-2-ArticleToVideo` | Points clés d'article → vidéo | 9s | 1920x1080 |
+| `Dev-Logo` | Logo seul pour tests | 5s | 1920x1080 |
 
 ---
 
@@ -202,8 +74,7 @@ import { fade } from "@remotion/transitions/fade";
 # Développement (Studio)
 cd remotion-app && npm run dev
 
-# Prévisualiser dans le navigateur
-# Note: le port peut varier (3000, 3001, 3002...)
+# Prévisualiser (port peut varier)
 http://localhost:3000
 
 # Rendu vidéo
@@ -229,47 +100,66 @@ npx remotion still Ex1-1-HelloWorld output.png --frame=0
 - [x] **Ex3-1-ImageShowcase** : Ken Burns effect (zoomIn, zoomOut, panRight)
 - [ ] **Ex3-2-VideoOverlay** : Vidéo de fond + texte animé
 
-### Niveau 4 - Texte & Captions (`ex4-text/`)
-- [ ] **Ex4-1-WordByWord** : Texte mot par mot style TikTok
-- [ ] **Ex4-2-AnimatedQuote** : Citation animée format LinkedIn
+### Niveau 4 - Texte (`ex4-text/`)
+- [x] **Ex4-1-WordByWord** : Texte mot par mot style TikTok
+- [x] **Ex4-2-AnimatedQuote** : Citation animée format LinkedIn (1080x1080)
 
 ### Niveau 5 - Branding (`ex5-branding/`)
-- [ ] **Ex5-1-BrandKit** : Logo, couleurs, fonts centralisés
-- [ ] **Ex5-2-LowerThirds** : Bandeaux animés (nom, titre)
+- [x] **Ex5-1-BrandKit** : Palette couleurs, typographies, logo
+- [x] **Ex5-2-LowerThirds** : Bandeaux animés (3 variantes)
+- **Fichier clé** : `brandConfig.ts` - Configuration centralisée réutilisable
 
 ### Niveau 6 - Infographies (`ex6-infographics/`)
-- [ ] **Ex6-1-AnimatedStats** : Graphiques qui se construisent
-- [ ] **Ex6-2-ArticleToVideo** : Bullet points → infographie animée
+- [x] **Ex6-1-AnimatedStats** : Compteurs, barres de progression, donut charts
+- [x] **Ex6-2-ArticleToVideo** : Template article → vidéo infographique
 
-### Niveau 7 - Text-to-Speech (`ex7-tts/`)
+### Niveau 7 - Text-to-Speech (`ex7-tts/`) - À venir
 - [ ] **Ex7-1-TTSBasic** : Intégration ElevenLabs/OpenAI TTS
 - [ ] **Ex7-2-SyncedCaptions** : Sous-titres synchronisés mot par mot
 
-### Niveau 8 - AWS Lambda (`ex8-lambda/`)
+### Niveau 8 - AWS Lambda (`ex8-lambda/`) - À venir
 - [ ] **Ex8-1-LambdaSetup** : Config AWS, déploiement
 - [ ] **Ex8-2-CloudRender** : Rendu vidéo via Lambda + S3
 - [ ] **Ex8-3-VideoAPI** : API POST → vidéo générée
 
-### Niveau 9 - Projets Finaux
-- [ ] **Projet A** : Résumé d'article avec infographie
-- [ ] **Projet B** : Post LinkedIn/TikTok avec branding
-- [ ] **Projet C** : Tutoriel automatisé avec TTS
+---
+
+## Concepts clés par exercice
+
+### Niveau 4 - Texte
+- **WordByWord** : Calcul du mot actif basé sur `frame / framesPerWord`
+- **AnimatedQuote** : Animation ligne par ligne avec délai progressif
+
+### Niveau 5 - Branding
+- **brandConfig.ts** : Couleurs, fonts, espacements, durées centralisés
+- **LowerThirds** : Composant réutilisable avec prop `variant`
+
+### Niveau 6 - Infographies
+- **AnimatedCounter** : `interpolate()` avec `Easing.out(Easing.cubic)`
+- **DonutChart** : SVG avec `strokeDasharray` et `strokeDashoffset` animés
+- **ArticleToVideo** : Structure Intro → Points → Outro avec `<Sequence>`
 
 ---
 
-## Ressources
+## Règles Remotion
 
-- [Documentation officielle](https://www.remotion.dev/docs)
-- [GitHub Remotion](https://github.com/remotion-dev/remotion)
-- [Exemples officiels](https://github.com/remotion-dev/remotion/tree/main/packages/example)
+### À FAIRE
+- `useCurrentFrame()` pour toutes les animations
+- `staticFile()` pour les assets du dossier `public/`
+- `random(seed)` pour la randomisation (déterministe)
+
+### À NE PAS FAIRE
+- `Math.random()` - interdit (non déterministe)
+- CSS transitions/animations
+- IDs de composition avec des points (utiliser tirets)
 
 ---
 
 ## Notes de Session
 
-### Session du 24/01/2026
-- Exercices 1.1 à 3.1 complétés
-- Ken Burns effect implémenté avec 6 directions (zoomIn, zoomOut, panLeft, panRight, panUp, panDown)
-- Images Unsplash téléchargées (nature1.jpg, nature2.jpg, nature3.jpg)
-- Note : Les `<Folder>` de Remotion causent des écrans noirs - utiliser une liste plate de compositions
-- Note : Éviter les points dans les IDs (ex: `1.1-HelloWorld` → `Ex1-1-HelloWorld`)
+### 24/01/2026
+- Exercices 1.1 à 6.2 complétés
+- 12 compositions fonctionnelles
+- Ken Burns, WordByWord, LowerThirds, AnimatedStats implémentés
+- Bug corrigé : `<Folder>` causait des écrans noirs → liste plate
+- Bug corrigé : IDs avec points (`1.1-`) → préfixe `Ex` (`Ex1-1-`)

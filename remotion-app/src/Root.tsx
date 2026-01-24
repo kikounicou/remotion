@@ -10,6 +10,12 @@ import {
   defaultVideoTemplateProps,
 } from "./exercises/ex2-sequencing/VideoTemplate";
 import { ImageShowcase } from "./exercises/ex3-media/ImageShowcase";
+import { WordByWord } from "./exercises/ex4-text/WordByWord";
+import { AnimatedQuote } from "./exercises/ex4-text/AnimatedQuote";
+import { BrandKit } from "./exercises/ex5-branding/BrandKit";
+import { LowerThirds } from "./exercises/ex5-branding/LowerThirds";
+import { AnimatedStats } from "./exercises/ex6-infographics/AnimatedStats";
+import { ArticleToVideo } from "./exercises/ex6-infographics/ArticleToVideo";
 
 /**
  * Remotion Learning Project
@@ -73,6 +79,63 @@ export const RemotionRoot: React.FC = () => {
         id="Ex3-1-ImageShowcase"
         component={ImageShowcase}
         durationInFrames={230}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+
+      {/* NIVEAU 4 - TEXTE */}
+      <Composition
+        id="Ex4-1-WordByWord"
+        component={WordByWord}
+        durationInFrames={150}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id="Ex4-2-AnimatedQuote"
+        component={AnimatedQuote}
+        durationInFrames={180}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+
+      {/* NIVEAU 5 - BRANDING */}
+      <Composition
+        id="Ex5-1-BrandKit"
+        component={BrandKit}
+        durationInFrames={180}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id="Ex5-2-LowerThirds"
+        component={LowerThirds}
+        durationInFrames={300}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+
+      {/* NIVEAU 6 - INFOGRAPHIES */}
+      <Composition
+        id="Ex6-1-AnimatedStats"
+        component={AnimatedStats}
+        durationInFrames={180}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id="Ex6-2-ArticleToVideo"
+        component={ArticleToVideo}
+        durationInFrames={270}
         fps={30}
         width={1920}
         height={1080}
