@@ -269,7 +269,7 @@ npx remotion lambda render <site-url> <composition-id>
 - [x] **1.2 - Compteur animé** : Comparaison des easings (linear, easeIn, easeOut, easeInOut)
 
 ### Niveau 2 - Séquencement (`ex2-sequencing/`)
-- [ ] **2.1 - Slideshow** : 3 slides avec transitions fade
+- [x] **2.1 - Slideshow** : 3 slides avec transitions fade
 - [ ] **2.2 - Intro/Outro** : Template réutilisable
 
 ### Niveau 3 - Média
@@ -284,10 +284,15 @@ npx remotion lambda render <site-url> <composition-id>
 - [ ] **5.1 - Stats animées** : Graphiques qui se construisent
 - [ ] **5.2 - Template paramétrable** : Rendu CLI avec props
 
+### Niveau 6 - AWS Lambda (rendu cloud)
+- [ ] **6.1 - Setup Lambda** : Config AWS, déployer fonction
+- [ ] **6.2 - Rendu distant** : Générer vidéo via Lambda, gérer S3
+- [ ] **6.3 - API de génération** : Endpoint POST → vidéo générée
+
 ### Projets Finaux
 - [ ] **Projet A** : Résumé d'article (30-60s)
 - [ ] **Projet B** : Post LinkedIn (1080x1080)
-- [ ] **Projet C** : Pipeline IA automatisé
+- [ ] **Projet C** : Pipeline IA + Lambda (automatisation complète)
 
 ---
 

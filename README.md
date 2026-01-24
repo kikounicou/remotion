@@ -9,7 +9,7 @@ Un projet d'apprentissage progressif pour maîtriser **Remotion**, le framework 
 - Des vidéos générées par code (reproductibles, versionnables)
 - Des animations précises au frame près
 - L'automatisation de la production vidéo
-- Le rendu côté serveur (AWS Lambda)
+- Le rendu dans le cloud via **AWS Lambda** (génération de centaines de vidéos en parallèle, idéal pour les vidéos personnalisées type "Spotify Wrapped")
 
 ## Structure du projet
 
@@ -78,6 +78,7 @@ npx remotion render <composition-id> output.mp4
 - **3.1** - Vidéo avec overlay texte
 - **4.1** - Texte mot par mot (style TikTok)
 - **5.1** - Stats animées avec données dynamiques
+- **6.1-6.3** - Déploiement AWS Lambda (rendu cloud, API de génération)
 
 ## Concepts clés
 

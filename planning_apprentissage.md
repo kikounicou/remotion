@@ -81,13 +81,48 @@
 - **But** : Automatiser la génération  
 
 
-### Niveau 6 : Projets réels (tes objectifs)
+### Niveau 6 : Déploiement Cloud (AWS Lambda)
+
+**Exercice 6.1 - Setup Lambda**
+
+- Configurer AWS credentials
+- Installer `@remotion/lambda`
+- Déployer une fonction Lambda
+- **But** : Préparer l'infrastructure cloud
+
+**Exercice 6.2 - Rendu distant**
+
+- Rendre une vidéo via Lambda (pas en local)
+- Comparer les temps de rendu local vs cloud
+- Gérer les fichiers S3 (input/output)
+- **But** : Maîtriser le rendu serverless
+
+**Exercice 6.3 - API de génération**
+
+- Créer une API (Express/Fastify) qui déclenche Lambda
+- Endpoint POST avec paramètres → vidéo générée
+- Webhook de notification quand la vidéo est prête
+- **But** : Exposer la génération vidéo comme service
+
+**Pourquoi Lambda ?**
+
+| Local | Lambda |
+|-------|--------|
+| 1 vidéo à la fois | Centaines en parallèle |
+| Ta machine bloquée | Serverless, scalable |
+| Gratuit | ~0.01-0.05$ par vidéo |
+
+Cas d'usage : GitHub Unwrapped, Spotify Wrapped, vidéos personnalisées SaaS.
+
+---
+
+### Niveau 7 : Projets réels (tes objectifs)
 
 **Projet A - Résumé d'article**
 
 - Input : titre + 3-5 points clés
 - Output : Vidéo 30-60 secondes avec infographie
-- **But** : Illustrer vos articles  
+- **But** : Illustrer vos articles
 
 
 **Projet B - Post LinkedIn**
@@ -95,14 +130,15 @@
 - Format carré (1080x1080)
 - Citation ou stat mise en valeur
 - Logo et branding
-- **But** : Contenu social  
+- **But** : Contenu social
 
 
-**Projet C - Pipeline IA**
+**Projet C - Pipeline IA + Lambda**
 
 - Intégration avec Claude/GPT pour générer le contenu
-- Script qui génère la vidéo automatiquement
-- **But** : Automatisation complète  
+- Rendu via Lambda (pas en local)
+- API complète : texte → vidéo automatiquement
+- **But** : Automatisation complète à grande échelle  
 
 
 ---
@@ -113,7 +149,8 @@
 Semaine 1 : Exercices 1.1 → 2.2 (Bases + Séquencement)
 Semaine 2 : Exercices 3.1 → 4.2 (Média + Texte)
 Semaine 3 : Exercices 5.1 → 5.2 (Données + Automatisation)
-Semaine 4 : Projets A, B, C (Cas réels)
+Semaine 4 : Exercices 6.1 → 6.3 (AWS Lambda)
+Semaine 5 : Projets A, B, C (Cas réels avec Lambda)
 ```
 
 ---
