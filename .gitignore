@@ -21,6 +21,7 @@ credentials.*
 
 # Claude Code local settings (user-specific, not secrets)
 .claude/settings.local.json
+.claude/conversations/
 
 # Logs
 *.log
