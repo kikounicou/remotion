@@ -10,6 +10,7 @@
 - **JAMAIS** de credentials ou fichiers sensibles
 - Vérifier chaque commit avant push
 - Les fichiers `.claude/settings.local.json` sont exclus (préférences locales)
+- **Git push** : Uniquement quand l'utilisateur le demande explicitement
 
 ### Assets autorisés
 - Musique/images libres de droits uniquement (Pixabay, Unsplash, etc.)
@@ -39,25 +40,52 @@ Remotion permet de créer des vidéos en utilisant du code React/TypeScript au l
 remotion/
 ├── remotion-app/
 │   ├── src/
-│   │   ├── index.ts              # Point d'entrée - registerRoot()
-│   │   ├── Root.tsx              # Compositions définies ici
-│   │   ├── HelloWorld.tsx        # Exercice 1.1 modifié
-│   │   ├── HelloWorld/           # Composants du template
-│   │   │   ├── Badge.tsx         # [NEW] Badge animé
+│   │   ├── Root.tsx                    # Compositions (liste plate)
+│   │   ├── HelloWorld.tsx              # Ex1-1-HelloWorld
+│   │   ├── HelloWorld/                 # Composants réutilisables
+│   │   │   ├── Badge.tsx
 │   │   │   ├── Logo.tsx
 │   │   │   ├── Title.tsx
 │   │   │   ├── Subtitle.tsx
-│   │   │   └── constants.ts
-│   │   └── exercises/            # Exercices organisés par niveau
-│   │       ├── ex1-basics/       # Niveau 1 - Bases
+│   │   │   └── constants.ts            # Couleurs, fonts (branding)
+│   │   └── exercises/
+│   │       ├── ex1-basics/             # Niveau 1 - Bases
 │   │       │   ├── Counter.tsx
 │   │       │   └── CounterComparison.tsx
-│   │       └── ex2-sequencing/   # Niveau 2 - Séquencement
-│   ├── public/                   # Assets statiques
-│   │   └── music.mp3             # Musique libre de droits
+│   │       ├── ex2-sequencing/         # Niveau 2 - Séquencement
+│   │       │   ├── Slide.tsx
+│   │       │   ├── Slideshow.tsx
+│   │       │   ├── Intro.tsx
+│   │       │   ├── Outro.tsx
+│   │       │   └── VideoTemplate.tsx
+│   │       ├── ex3-media/              # Niveau 3 - Média
+│   │       │   ├── KenBurnsImage.tsx
+│   │       │   └── ImageShowcase.tsx
+│   │       ├── ex4-text/               # Niveau 4 - Texte (à venir)
+│   │       └── ...
+│   ├── public/                         # Assets libres de droits
+│   │   ├── music.mp3                   # Pixabay
+│   │   ├── nature1.jpg                 # Unsplash
+│   │   ├── nature2.jpg                 # Unsplash
+│   │   └── nature3.jpg                 # Unsplash
 │   └── package.json
-└── CLAUDE.md
+├── CLAUDE.md                           # Documentation technique
+├── README.md                           # Guide de démarrage
+└── planning_apprentissage.md           # Plan des exercices
 ```
+
+### Compositions disponibles
+
+Les compositions utilisent des IDs simples sans points (évite les bugs) :
+
+| ID | Description | Durée |
+|----|-------------|-------|
+| `Ex1-1-HelloWorld` | Template avec badge animé et musique | 5s |
+| `Ex1-2-CounterComparison` | 4 compteurs avec easings différents | 4s |
+| `Ex2-1-Slideshow` | 3 slides avec transitions fade | 5s |
+| `Ex2-2-VideoTemplate` | Template Intro/Contenu/Outro | 7s |
+| `Ex3-1-ImageShowcase` | Ken Burns effect sur 3 images | 7.6s |
+| `Dev-Logo` | Logo seul pour tests | 5s |
 
 ---
 
@@ -95,12 +123,6 @@ const opacity = interpolate(frame, [0, 30], [0, 1], {
 });
 ```
 
-**Paramètres :**
-- `frame` : valeur d'entrée (généralement le frame actuel)
-- `[0, 30]` : plage d'entrée (frames)
-- `[0, 1]` : plage de sortie (valeurs)
-- Options : `extrapolateLeft`, `extrapolateRight` ('clamp', 'extend', 'identity')
-
 ### 4. Animation avec `spring()`
 
 ```tsx
@@ -108,7 +130,7 @@ const scale = spring({
   frame,
   fps: videoConfig.fps,
   config: {
-    damping: 200,  // Défaut: 200
+    damping: 200,
   },
 });
 ```
@@ -134,49 +156,9 @@ const scale = spring({
 | `<Img>` | `remotion` | Images statiques |
 | `<Gif>` | `@remotion/gif` | GIFs animés synchronisés |
 
-### Propriétés média
-
-```tsx
-<Video
-  src={staticFile("video.mp4")}
-  volume={0.5}           // 0 à 1
-  playbackRate={1.5}     // Vitesse
-/>
-
-<Audio
-  src={staticFile("audio.mp3")}
-  startFrom={30}         // Début à 30 frames
-  endAt={120}            // Fin à 120 frames
-/>
-```
-
 ---
 
 ## Séquencement
-
-### Sequence
-
-```tsx
-<Sequence from={0} durationInFrames={60}>
-  <Scene1 />  {/* Frame 0-59 */}
-</Sequence>
-<Sequence from={60} durationInFrames={60}>
-  <Scene2 />  {/* Frame 60-119 */}
-</Sequence>
-```
-
-### Series (plus simple pour l'enchaînement)
-
-```tsx
-<Series>
-  <Series.Sequence durationInFrames={60}>
-    <Scene1 />
-  </Series.Sequence>
-  <Series.Sequence durationInFrames={60}>
-    <Scene2 />
-  </Series.Sequence>
-</Series>
-```
 
 ### TransitionSeries (avec transitions)
 
@@ -210,37 +192,7 @@ import { fade } from "@remotion/transitions/fade";
 ### À NE PAS FAIRE
 - `Math.random()` - interdit (non déterministe)
 - Effets de bord non contrôlés dans les composants
-
----
-
-## Packages Utiles
-
-| Package | Description |
-|---------|-------------|
-| `@remotion/transitions` | Transitions entre séquences |
-| `@remotion/gif` | Support GIF synchronisé |
-| `@remotion/three` | Intégration Three.js pour la 3D |
-| `@remotion/lottie` | Animations Lottie |
-| `@remotion/media-utils` | Utilitaires pour métadonnées média |
-| `@remotion/tailwind` | Intégration TailwindCSS |
-| `remotion-animated` | Animations déclaratives simplifiées |
-
----
-
-## remotion-animated
-
-Bibliothèque tierce pour simplifier les animations déclaratives :
-
-```tsx
-import { Animated, Move, Fade } from "remotion-animated";
-
-<Animated animations={[
-  Move({ y: [100, 0] }),
-  Fade({ to: 1 }),
-]}>
-  <h1>Titre animé</h1>
-</Animated>
-```
+- IDs de composition avec des points (ex: `1.1-HelloWorld`) - utiliser des tirets
 
 ---
 
@@ -248,16 +200,17 @@ import { Animated, Move, Fade } from "remotion-animated";
 
 ```bash
 # Développement (Studio)
-npm run dev
+cd remotion-app && npm run dev
+
+# Prévisualiser dans le navigateur
+# Note: le port peut varier (3000, 3001, 3002...)
+http://localhost:3000
 
 # Rendu vidéo
-npx remotion render <composition-id> out.mp4
+npx remotion render Ex1-1-HelloWorld output.mp4
 
 # Rendu image fixe
-npx remotion still <composition-id> out.png
-
-# Rendu Lambda (AWS)
-npx remotion lambda render <site-url> <composition-id>
+npx remotion still Ex1-1-HelloWorld output.png --frame=0
 ```
 
 ---
@@ -265,64 +218,42 @@ npx remotion lambda render <site-url> <composition-id>
 ## Exercices - Progression
 
 ### Niveau 1 - Bases (`ex1-basics/`)
-- [x] **1.1 - Hello World modifié** : Badge animé, timing ajusté, musique de fond
-- [x] **1.2 - Compteur animé** : Comparaison des easings (linear, easeIn, easeOut, easeInOut)
+- [x] **Ex1-1-HelloWorld** : Badge animé, timing ajusté, musique de fond
+- [x] **Ex1-2-CounterComparison** : Comparaison des easings
 
 ### Niveau 2 - Séquencement (`ex2-sequencing/`)
-- [x] **2.1 - Slideshow** : 3 slides avec transitions fade
-- [ ] **2.2 - Intro/Outro** : Template réutilisable
+- [x] **Ex2-1-Slideshow** : 3 slides avec transitions fade
+- [x] **Ex2-2-VideoTemplate** : Template Intro/Contenu/Outro réutilisable
 
-### Niveau 3 - Média
-- [x] **3.2 - Audio** : Intégré dans 1.1 (fade in/out)
-- [ ] **3.1 - Vidéo overlay** : Texte animé sur vidéo
+### Niveau 3 - Média (`ex3-media/`)
+- [x] **Ex3-1-ImageShowcase** : Ken Burns effect (zoomIn, zoomOut, panRight)
+- [ ] **Ex3-2-VideoOverlay** : Vidéo de fond + texte animé
 
-### Niveau 4 - Texte & Captions
-- [ ] **4.1 - Texte mot par mot** : Style TikTok
-- [ ] **4.2 - Citation animée** : Format LinkedIn
+### Niveau 4 - Texte & Captions (`ex4-text/`)
+- [ ] **Ex4-1-WordByWord** : Texte mot par mot style TikTok
+- [ ] **Ex4-2-AnimatedQuote** : Citation animée format LinkedIn
 
-### Niveau 5 - Données dynamiques
-- [ ] **5.1 - Stats animées** : Graphiques qui se construisent
-- [ ] **5.2 - Template paramétrable** : Rendu CLI avec props
+### Niveau 5 - Branding (`ex5-branding/`)
+- [ ] **Ex5-1-BrandKit** : Logo, couleurs, fonts centralisés
+- [ ] **Ex5-2-LowerThirds** : Bandeaux animés (nom, titre)
 
-### Niveau 6 - AWS Lambda (rendu cloud)
-- [ ] **6.1 - Setup Lambda** : Config AWS, déployer fonction
-- [ ] **6.2 - Rendu distant** : Générer vidéo via Lambda, gérer S3
-- [ ] **6.3 - API de génération** : Endpoint POST → vidéo générée
+### Niveau 6 - Infographies (`ex6-infographics/`)
+- [ ] **Ex6-1-AnimatedStats** : Graphiques qui se construisent
+- [ ] **Ex6-2-ArticleToVideo** : Bullet points → infographie animée
 
-### Projets Finaux
-- [ ] **Projet A** : Résumé d'article (30-60s)
-- [ ] **Projet B** : Post LinkedIn (1080x1080)
-- [ ] **Projet C** : Pipeline IA + Lambda (automatisation complète)
+### Niveau 7 - Text-to-Speech (`ex7-tts/`)
+- [ ] **Ex7-1-TTSBasic** : Intégration ElevenLabs/OpenAI TTS
+- [ ] **Ex7-2-SyncedCaptions** : Sous-titres synchronisés mot par mot
 
----
+### Niveau 8 - AWS Lambda (`ex8-lambda/`)
+- [ ] **Ex8-1-LambdaSetup** : Config AWS, déploiement
+- [ ] **Ex8-2-CloudRender** : Rendu vidéo via Lambda + S3
+- [ ] **Ex8-3-VideoAPI** : API POST → vidéo générée
 
-## Skills Claude Code installés
-
-Le skill **remotion-best-practices** est installé dans `.claude/skills/remotion/`.
-
-### Règles disponibles (28 fichiers)
-
-| Catégorie | Règles |
-|-----------|--------|
-| **Animation** | `animations.md`, `timing.md`, `text-animations.md`, `transitions.md`, `trimming.md` |
-| **Média** | `videos.md`, `audio.md`, `images.md`, `gifs.md`, `fonts.md`, `assets.md` |
-| **Structure** | `compositions.md`, `sequencing.md`, `calculate-metadata.md` |
-| **Captions** | `display-captions.md`, `import-srt-captions.md`, `transcribe-captions.md` |
-| **Avancé** | `3d.md`, `charts.md`, `lottie.md`, `tailwind.md` |
-| **Utilitaires** | `measuring-text.md`, `measuring-dom-nodes.md`, `can-decode.md` |
-| **Mediabunny** | `get-video-duration.md`, `get-audio-duration.md`, `get-video-dimensions.md`, `extract-frames.md` |
-
-### Points clés des règles
-
-**INTERDIT :**
-- CSS transitions/animations
-- Classes Tailwind pour animations
-- `Math.random()` (non déterministe)
-
-**OBLIGATOIRE :**
-- Utiliser `useCurrentFrame()` pour toutes les animations
-- Utiliser `random(seed)` pour la randomisation
-- Multiplier par `fps` pour convertir secondes → frames
+### Niveau 9 - Projets Finaux
+- [ ] **Projet A** : Résumé d'article avec infographie
+- [ ] **Projet B** : Post LinkedIn/TikTok avec branding
+- [ ] **Projet C** : Tutoriel automatisé avec TTS
 
 ---
 
@@ -330,109 +261,15 @@ Le skill **remotion-best-practices** est installé dans `.claude/skills/remotion
 
 - [Documentation officielle](https://www.remotion.dev/docs)
 - [GitHub Remotion](https://github.com/remotion-dev/remotion)
-- [remotion-animated](https://github.com/stefanwittwer/remotion-animated)
 - [Exemples officiels](https://github.com/remotion-dev/remotion/tree/main/packages/example)
-
----
-
-## Structure du Projet Template
-
-```
-remotion-app/
-├── src/
-│   ├── index.ts              # registerRoot() - point d'entrée
-│   ├── Root.tsx              # Définit les <Composition>
-│   ├── HelloWorld.tsx        # Composition principale
-│   └── HelloWorld/
-│       ├── Logo.tsx          # Animation logo avec arcs
-│       ├── Arc.tsx           # Composant arc SVG
-│       ├── Atom.tsx          # Centre du logo
-│       ├── Title.tsx         # Texte animé mot par mot
-│       ├── Subtitle.tsx      # Sous-titre
-│       └── constants.ts      # Constantes (fonts, etc.)
-├── public/                   # Assets statiques
-├── package.json
-├── remotion.config.ts
-└── tsconfig.json
-```
-
----
-
-## Analyse du Template HelloWorld
-
-### Fichier Root.tsx - Définition des compositions
-Deux compositions définies :
-1. **HelloWorld** - Composition complète avec logo, titre, sous-titre
-2. **OnlyLogo** - Logo seul pour développement isolé
-
-### Fichier HelloWorld.tsx - Composition principale
-**Techniques utilisées :**
-- `useCurrentFrame()` pour obtenir le frame actuel
-- `spring()` avec décalage temporel (`frame - 25`)
-- `interpolate()` pour mapper les valeurs
-- `<Sequence from={X}>` pour positionner dans le temps
-- `<AbsoluteFill>` pour la superposition
-
-### Fichier Title.tsx - Animation de texte
-**Technique :** Animation mot par mot avec délai progressif
-```tsx
-const words = titleText.split(" ");
-words.map((t, i) => {
-  const delay = i * 5;  // 5 frames entre chaque mot
-  const scale = spring({ frame: frame - delay, ... });
-  return <span style={{ transform: `scale(${scale})` }}>{t}</span>
-});
-```
-
-### Fichier Logo.tsx - Animation complexe
-**Techniques :**
-- Rotation continue sur toute la durée
-- Plusieurs animations spring indépendantes
-- Composition de transformations CSS
 
 ---
 
 ## Notes de Session
 
-### Session 1 - Initialisation (24/01/2026)
-- Projet créé avec template "hello-world"
-- Documentation consolidée depuis 4 sources
-- Packages installés : remotion, @remotion/transitions, remotion-animated
-- Structure analysée et documentée
-
-### Session 2 - Exercices 1.1 & 1.2 (24/01/2026)
-**Exercice 1.1 - Hello World modifié :**
-- Nouvelles couleurs (violet #6C63FF, corail #FF6B6B, turquoise #4ECDC4)
-- Badge animé avec spring() + rotation
-- Timing ajusté (animations plus rapides)
-- Musique de fond avec fade in/out (Pixabay, libre de droits)
-- Concepts : `useCurrentFrame()`, `interpolate()`, `spring()`, `<Sequence>`, `<Audio>`
-
-**Exercice 1.2 - Compteur animé :**
-- Comparaison visuelle de 4 easings côte à côte
-- Composant Counter réutilisable avec props
-- Concepts : `Easing.in()`, `Easing.out()`, `Easing.inOut()`, `Easing.bounce`
-
-**Prochaine étape :** Exercice 2.1 - Slideshow avec transitions
-
-### Compositions disponibles
-| ID | Description | Durée |
-|----|-------------|-------|
-| `HelloWorld` | Template modifié avec musique | 5s (150 frames) |
-| `CounterComparison` | 4 compteurs avec easings | 4s (120 frames) |
-| `OnlyLogo` | Logo seul | 5s (150 frames) |
-
-### Commandes utiles
-```bash
-# Lancer le studio de développement
-cd remotion-app && npm run dev
-
-# Prévisualiser dans le navigateur
-http://localhost:3001
-
-# Rendre une vidéo
-npx remotion render <composition-id> output.mp4
-
-# Rendre une image fixe (frame 0)
-npx remotion still <composition-id> output.png --frame=0
-```
+### Session du 24/01/2026
+- Exercices 1.1 à 3.1 complétés
+- Ken Burns effect implémenté avec 6 directions (zoomIn, zoomOut, panLeft, panRight, panUp, panDown)
+- Images Unsplash téléchargées (nature1.jpg, nature2.jpg, nature3.jpg)
+- Note : Les `<Folder>` de Remotion causent des écrans noirs - utiliser une liste plate de compositions
+- Note : Éviter les points dans les IDs (ex: `1.1-HelloWorld` → `Ex1-1-HelloWorld`)

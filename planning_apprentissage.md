@@ -35,14 +35,21 @@
 
 ### Niveau 3 : Média (enrichir le contenu)
 
-**Exercice 3.1 - Vidéo avec overlay**
+**Exercice 3.1 - Images libres de droits**
 
-- Intégrer une vidéo de fond
+- Télécharger des images depuis Unsplash/Pexels
+- Utiliser `<Img>` avec animations (zoom, pan, fade)
+- Créer un Ken Burns effect (zoom lent sur image)
+- **But** : Maîtriser les images et leurs animations
+
+**Exercice 3.2 - Vidéo avec overlay**
+
+- Intégrer une vidéo de fond (Pexels Videos)
 - Ajouter du texte animé par-dessus
-- **But** : Maîtriser `<Video>` et la superposition  
+- Contrôler volume, playbackRate, startFrom/endAt
+- **But** : Maîtriser `<Video>` et la superposition
 
-
-**Exercice 3.2 - Audio synchronisé**
+**Exercice 3.3 - Audio synchronisé** ✅ (fait dans 1.1)
 
 - Musique de fond avec fade in/out
 - Synchroniser des éléments visuels
@@ -65,23 +72,77 @@
 - **But** : Format idéal pour LinkedIn  
 
 
-### Niveau 5 : Données dynamiques (automatisation)
+### Niveau 5 : Branding & Templates réutilisables
 
-**Exercice 5.1 - Stats animées**
+**Exercice 5.1 - Kit de marque**
 
-- Graphique simple qui se construit
-- Chiffres qui s'incrémentent
-- **But** : Visualisation de données  
+- Créer des constantes de branding (couleurs, fonts, logo)
+- Composants réutilisables : Logo, Watermark, LowerThird
+- Fichier de config centralisé
+- **But** : Avoir une identité visuelle cohérente
+
+**Exercice 5.2 - Lower Thirds (bandeaux)**
+
+- Bandeau animé avec nom/titre
+- Différents styles (corporate, gaming, minimal)
+- Position configurable (bas gauche, bas droite)
+- **But** : Éléments pro pour interviews/tutos
+
+**Exercice 5.3 - Transitions de marque**
+
+- Transitions personnalisées avec logo
+- Wipe, reveal, glitch effects
+- **But** : Transitions uniques à ta marque
+
+---
+
+### Niveau 6 : Infographies & Data Viz
+
+**Exercice 6.1 - Stats animées**
+
+- Graphique simple qui se construit (barres, lignes)
+- Chiffres qui s'incrémentent avec easing
+- **But** : Visualisation de données
+
+**Exercice 6.2 - Infographie d'article**
+
+- Input : titre + 3-5 bullet points
+- Layout automatique avec icônes
+- Animation séquentielle des points
+- **But** : Transformer un article en vidéo
+
+**Exercice 6.3 - Template paramétrable**
+
+- Une composition avec `defaultProps` et schema Zod
+- Rendu via CLI avec paramètres JSON
+- **But** : Automatiser la génération
+
+---
+
+### Niveau 7 : Text-to-Speech (Tutoriels)
+
+**Exercice 7.1 - Intégration TTS basique**
+
+- Utiliser une API TTS (ElevenLabs, OpenAI, Google)
+- Générer un MP3 depuis du texte
+- Synchroniser avec les visuels
+- **But** : Ajouter une voix off
+
+**Exercice 7.2 - Captions synchronisées**
+
+- Générer des timestamps depuis le TTS
+- Afficher les sous-titres mot par mot
+- Highlight du mot prononcé
+- **But** : Accessibilité + engagement
+
+**Exercice 7.3 - Tutoriel complet**
+
+- Script texte → TTS → Vidéo avec captions
+- Visuels qui suivent la narration
+- **But** : Créer des tutos automatiquement  
 
 
-**Exercice 5.2 - Template paramétrable**
-
-- Une composition avec `defaultProps`
-- Rendu via CLI avec paramètres
-- **But** : Automatiser la génération  
-
-
-### Niveau 6 : Déploiement Cloud (AWS Lambda)
+### Niveau 8 : Déploiement Cloud (AWS Lambda)
 
 **Exercice 6.1 - Setup Lambda**
 
@@ -116,28 +177,37 @@ Cas d'usage : GitHub Unwrapped, Spotify Wrapped, vidéos personnalisées SaaS.
 
 ---
 
-### Niveau 7 : Projets réels (tes objectifs)
+### Niveau 9 : Projets réels (tes objectifs)
 
-**Projet A - Résumé d'article**
+**Projet A - Résumé d'article avec infographie**
 
-- Input : titre + 3-5 points clés
-- Output : Vidéo 30-60 secondes avec infographie
-- **But** : Illustrer vos articles
+- Input : titre + 3-5 points clés (JSON ou Markdown)
+- Infographie animée avec icônes
+- Voix off TTS optionnelle
+- Output : Vidéo 30-60 secondes
+- **But** : Transformer vos articles en vidéos
 
+**Projet B - Post LinkedIn/TikTok**
 
-**Projet B - Post LinkedIn**
-
-- Format carré (1080x1080)
+- Format carré (1080x1080) ou vertical (1080x1920)
 - Citation ou stat mise en valeur
-- Logo et branding
-- **But** : Contenu social
+- Branding complet (logo, couleurs, lower third)
+- Musique de fond
+- **But** : Contenu social viral
 
+**Projet C - Tutoriel automatisé**
 
-**Projet C - Pipeline IA + Lambda**
+- Script texte → TTS (ElevenLabs/OpenAI)
+- Captions synchronisées mot par mot
+- Visuels qui suivent la narration
+- **But** : Créer des tutos sans enregistrer sa voix
 
-- Intégration avec Claude/GPT pour générer le contenu
-- Rendu via Lambda (pas en local)
-- API complète : texte → vidéo automatiquement
+**Projet D - Pipeline IA + Lambda**
+
+- Claude/GPT génère le script et les bullet points
+- TTS génère la voix
+- Remotion Lambda rend la vidéo
+- API complète : sujet → vidéo automatiquement
 - **But** : Automatisation complète à grande échelle  
 
 
@@ -146,11 +216,13 @@ Cas d'usage : GitHub Unwrapped, Spotify Wrapped, vidéos personnalisées SaaS.
 ## Parcours recommandé
 
 ```
-Semaine 1 : Exercices 1.1 → 2.2 (Bases + Séquencement)
+Semaine 1 : Exercices 1.1 → 2.2 (Bases + Séquencement) ✅ FAIT
 Semaine 2 : Exercices 3.1 → 4.2 (Média + Texte)
-Semaine 3 : Exercices 5.1 → 5.2 (Données + Automatisation)
-Semaine 4 : Exercices 6.1 → 6.3 (AWS Lambda)
-Semaine 5 : Projets A, B, C (Cas réels avec Lambda)
+Semaine 3 : Exercices 5.1 → 5.3 (Branding + Templates)
+Semaine 4 : Exercices 6.1 → 6.3 (Infographies + Data)
+Semaine 5 : Exercices 7.1 → 7.3 (Text-to-Speech)
+Semaine 6 : Exercices 8.1 → 8.3 (AWS Lambda)
+Semaine 7 : Projets A, B, C, D (Cas réels)
 ```
 
 ---
