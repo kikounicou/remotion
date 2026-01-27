@@ -415,6 +415,49 @@ export const UvcwCompositions: React.FC = () => {
           } satisfies ArticleVideoUltimateProps
         }
       />
+
+      {/* ===========================================
+          ARTICLE 9653 - Réforme du chômage (Insertion)
+          =========================================== */}
+
+      {/* Article 9653 - Insertion socioprofessionnelle - Réforme chômage */}
+      <Composition
+        id="UVCW-ArticleVideo-9653"
+        component={ArticleVideoUltimate}
+        durationInFrames={540}
+        fps={fps}
+        width={width}
+        height={height}
+        defaultProps={
+          {
+            hook: {
+              chiffreChoc: "180 000",
+              contexte: "personnes exclues du chômage dès 2026",
+              accroche: "Qui va les accompagner ?",
+            },
+            titre: "Réforme du chômage : impacts sur les pouvoirs locaux",
+            accroche:
+              "L'UVCW et la Fédération des CPAS alertent sur les conséquences durables pour les communes.",
+            matiere: "insertion",
+            typeContenu: "Actualité",
+            photoUrl: "https://www.uvcw.be/images/photos/1500/3015.jpg",
+            articleUrl: "https://www.uvcw.be/insertion/actus/art-9653",
+            pointsCles: [
+              "300 millions insuffisants selon les estimations",
+              "Prise en charge sur fonds propres des CPAS dès 2027",
+              "Mécanismes bonus/malus complexifient la répartition",
+              "L'UVCW demande un suivi rigoureux et une réévaluation",
+            ],
+            kenBurnsEffect: "zoomInPanLeft",
+            kenBurnsIntensity: 1.5,
+            showProgressBar: true,
+            hookDuration: 60,
+            titleDuration: 120,
+            bulletsDuration: 270,
+            outroDuration: 90,
+          } satisfies ArticleVideoUltimateProps
+        }
+      />
     </>
   );
 };

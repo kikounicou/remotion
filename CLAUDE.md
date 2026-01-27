@@ -182,6 +182,35 @@ npx remotion still Ex1-1-HelloWorld output.png --frame=0
 
 ---
 
+# INFOGRAPHIES - Visualisations animees
+
+## Vue d'ensemble
+
+Le module `infographies/` contient des visualisations de workflows techniques :
+
+| Composition | Description | Format | Duree |
+|-------------|-------------|--------|-------|
+| `Infographie-EvalWorkflow` | Workflow complet avec sections | 1920x1080 | 38s |
+| `Infographie-EvalFlow` | Diagramme de flux V1 | 1080x1080 | 15s |
+| `Infographie-EvalFlowV2` | Diagramme de flux V2 (dark) | 1080x1080 | 20s |
+
+## Workflow visualise
+
+Le workflow d'evaluation de documents :
+
+```
+Scanner → N8N → S3 → Lambda → Analysis → Dashboard
+```
+
+**Services representes :**
+- Scanner (violet) - Numerisation
+- N8N (rose) - Automation
+- S3 (vert) - Stockage AWS
+- Lambda (orange) - Traitement
+- Azure (bleu) - Analyse IA
+
+Documentation : [`infographies/INFOGRAPHIES.md`](remotion-app/src/infographies/INFOGRAPHIES.md)
+
 ---
 
 ## Skills Claude Code
@@ -198,20 +227,30 @@ Les skills sont dans `.claude/skills/` :
 
 ## Notes de Session
 
+### 27/01/2026 (soir)
+- **Restructuration projet** pour GitHub
+  - README.md complet avec structure, modules pro, demarrage rapide
+  - INFOGRAPHIES.md cree pour documenter le module infographies
+  - CLAUDE.md mis a jour avec section infographies
+  - Nettoyage fichiers de test (test-*.png)
+- **Test UVCW** : Article 9653 converti en video avec succes
+  - Matiere "insertion" (E34F57) correctement mappee
+  - Ken Burns, word-by-word, progress bar fonctionnels
+
 ### 27/01/2026
-- **Module Infographies** créé (`src/infographies/`)
+- **Module Infographies** cree (`src/infographies/`)
   - `Infographie-EvalWorkflow` : Version slides (1920x1080, 38s)
-  - `Infographie-EvalFlowV2` : Version flow animé (1080x1080, 20s, fond sombre)
-- **Skills consolidés** dans `.claude/skills/` (remotion, elevenlabs, heygen)
-- Nettoyage des dossiers dupliqués (.agent, .agents, skills/)
+  - `Infographie-EvalFlowV2` : Version flow anime (1080x1080, 20s, fond sombre)
+- **Skills consolides** dans `.claude/skills/` (remotion, elevenlabs, heygen)
+- Nettoyage des dossiers dupliques (.agent, .agents, skills/)
 
 ### 27/01/2026 (matin)
-- **Bibliothèque de sons partagée** créée (`src/shared/sounds/`)
+- **Bibliotheque de sons partagee** creee (`src/shared/sounds/`)
   - 27 fichiers audio (42MB) - Envato Elements
   - 7 presets : cinematic, corporate, social, minimal, sfxOnly, educational, silent
 - Module UVCW avec sound design complet
 
 ### 24/01/2026
-- Exercices 1.1 à 6.2 complétés
+- Exercices 1.1 a 6.2 completes
 - 12 compositions fonctionnelles
-- Ken Burns, WordByWord, LowerThirds, AnimatedStats implémentés
+- Ken Burns, WordByWord, LowerThirds, AnimatedStats implementes
