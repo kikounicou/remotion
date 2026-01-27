@@ -30,6 +30,11 @@ import {
   EVAL_FLOW_V2_DURATION,
 } from "./infographies";
 
+// Tutorial - HeyGen + Infographics
+import { PebTutorial } from "./tutorial/PebTutorial";
+import { PebTutorialNicolas } from "./tutorial/PebTutorialNicolas";
+import { PebTutorialPro } from "./tutorial/PebTutorialPro";
+
 /**
  * Remotion Learning Project
  *
@@ -167,6 +172,34 @@ export const RemotionRoot: React.FC = () => {
           logoColor1: "#91dAE2" as const,
           logoColor2: "#86A8E7" as const,
         }}
+      />
+
+      {/* TUTORIAL - HeyGen Avatar + Infographics */}
+      <Composition
+        id="Tutorial-PEB-August"
+        component={PebTutorial}
+        durationInFrames={828}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id="Tutorial-PEB-Nicolas"
+        component={PebTutorialNicolas}
+        durationInFrames={1000}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id="Tutorial-PEB-PRO"
+        component={PebTutorialPro}
+        durationInFrames={1000}
+        fps={30}
+        width={1920}
+        height={1080}
       />
 
       {/* UVCW - Union des Villes et Communes de Wallonie */}

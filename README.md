@@ -130,6 +130,28 @@ remotion/
 
 Documentation : [`remotion-app/src/uvcw/UVCW.md`](remotion-app/src/uvcw/UVCW.md)
 
+### Tutorial PEB - Avatar IA + Infographies
+> Videos tutorielles combinant avatar IA (HeyGen) et infographies animees.
+
+**Workflow complet :**
+1. **HeyGen** - Generation video avatar (voix clonee ou stock)
+2. **OpenAI Whisper** - Transcription avec timestamps mot par mot
+3. **Remotion** - Composition avec infographies synchronisees
+
+| Composition | Description | Caracteristiques |
+|-------------|-------------|------------------|
+| `Tutorial-PEB-August` | Avatar stock August | Split-screen classique |
+| `Tutorial-PEB-Nicolas` | Avatar personnalise | Fond sombre assorti |
+| `Tutorial-PEB-PRO` | Version cinematique | Avatar flottant, particules, transitions |
+
+**Fonctionnalites PRO :**
+- Avatar repositionnable (picture-in-picture)
+- Mots-cles animes synchronises a la voix
+- Particules et grille animees
+- Effet Ken Burns sur backgrounds
+- Musique de fond corporate
+- Barre de progression multicolore
+
 ### Infographies animees
 > Visualisations de workflows et diagrammes animes.
 

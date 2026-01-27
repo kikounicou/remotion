@@ -1,0 +1,77 @@
+{
+  "name": "peb-intro",
+  "voice": "XrExE9yKIg1WjnnlVkGX",
+  "model": "eleven_multilingual_v2",
+  "character": "narrator",
+  "dictionary": null,
+  "totalScenes": 5,
+  "totalCharacters": 421,
+  "generatedAt": "2026-01-27T16:09:04.914Z",
+  "scenes": [
+    {
+      "id": "scene1",
+      "file": "peb-intro-scene1.mp3",
+      "text": "Saviez-vous que depuis 2021, tout bâtiment neuf en Wallonie doit être quasi zéro énergie ?",
+      "size": 92413,
+      "duration": 5,
+      "actualDuration": null,
+      "wordsPerSecond": null,
+      "leadingSilence": 0,
+      "delay": 0,
+      "character": "dramatic",
+      "requestId": "rMl8vynGISFgjaq8cwy0"
+    },
+    {
+      "id": "scene2",
+      "file": "peb-intro-scene2.mp3",
+      "text": "La PEB, Performance Énergétique des Bâtiments, encadre la construction et la rénovation depuis 2008.",
+      "size": 109549,
+      "duration": 7,
+      "actualDuration": null,
+      "wordsPerSecond": null,
+      "leadingSilence": 0,
+      "delay": 0,
+      "character": "narrator",
+      "requestId": "8sKwZCPQ90XysRUyGIme"
+    },
+    {
+      "id": "scene3",
+      "file": "peb-intro-scene3.mp3",
+      "text": "L'objectif ? Réduire les émissions de CO2 et maîtriser vos factures d'énergie.",
+      "size": 82799,
+      "duration": 6,
+      "actualDuration": null,
+      "wordsPerSecond": null,
+      "leadingSilence": 0,
+      "delay": 0,
+      "character": "narrator",
+      "requestId": "64uOPJVkdYf6uuwpznpf"
+    },
+    {
+      "id": "scene4",
+      "file": "peb-intro-scene4.mp3",
+      "text": "Isolation thermique K35, ventilation contrôlée, étude de faisabilité, et bientôt : bornes de recharge obligatoires.",
+      "size": 128775,
+      "duration": 8,
+      "actualDuration": null,
+      "wordsPerSecond": null,
+      "leadingSilence": 0,
+      "delay": 0,
+      "character": "narrator",
+      "requestId": "9Wmioy3zV5FGqOGRJdrT"
+    },
+    {
+      "id": "scene5",
+      "file": "peb-intro-scene5.mp3",
+      "text": "Retrouvez le guide complet sur uvcw.be",
+      "size": 48527,
+      "duration": 4,
+      "actualDuration": null,
+      "wordsPerSecond": null,
+      "leadingSilence": 0,
+      "delay": 0,
+      "character": "calm",
+      "requestId": "gGn9EChqKTmsLSxiEkYo"
+    }
+  ]
+}

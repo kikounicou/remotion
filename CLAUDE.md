@@ -23,11 +23,12 @@
 
 Ce projet est un espace d'apprentissage pour **Remotion**, un framework React pour créer des vidéos programmatiquement.
 
-**Quatre parties principales :**
+**Cinq parties principales :**
 1. **Tutoriels** (`exercises/`) - Exercices d'apprentissage, publics
 2. **Infographies** (`infographies/`) - Vidéos explicatives animées
-3. **UVCW** (`uvcw/`) - Module professionnel → voir [UVCW.md](remotion-app/src/uvcw/UVCW.md)
-4. **Shared** (`shared/`) - Bibliothèques partagées (sons, etc.) → voir [SOUNDS.md](remotion-app/src/shared/sounds/SOUNDS.md)
+3. **Tutorial PEB** (`tutorial/`) - Tutoriels avec avatar IA (HeyGen + Whisper)
+4. **UVCW** (`uvcw/`) - Module professionnel → voir [UVCW.md](remotion-app/src/uvcw/UVCW.md)
+5. **Shared** (`shared/`) - Bibliothèques partagées (sons, etc.) → voir [SOUNDS.md](remotion-app/src/shared/sounds/SOUNDS.md)
 
 ---
 
@@ -50,6 +51,10 @@ remotion/
 │   │   ├── infographies/               # VIDÉOS EXPLICATIVES
 │   │   │   ├── eval-workflow/          # Workflow évaluations (slides)
 │   │   │   └── eval-workflow-flow/     # Workflow évaluations (flow animé)
+│   │   ├── tutorial/                   # TUTORIELS AVATAR IA
+│   │   │   ├── PebTutorial.tsx         # Version split-screen (August)
+│   │   │   ├── PebTutorialNicolas.tsx  # Version avec avatar perso
+│   │   │   └── PebTutorialPro.tsx      # Version cinématique complète
 │   │   ├── shared/                     # BIBLIOTHÈQUES PARTAGÉES
 │   │   │   └── sounds/                 # → voir SOUNDS.md
 │   │   └── uvcw/                       # MODULE PRO → voir UVCW.md
@@ -109,6 +114,9 @@ npx remotion still Ex1-1-HelloWorld output.png --frame=0
 | `Infographie-EvalWorkflow` | Workflow évaluations (slides) | 38s | 1920x1080 |
 | `Infographie-EvalFlow` | Workflow évaluations V1 (flow) | 15s | 1080x1080 |
 | `Infographie-EvalFlowV2` | Workflow évaluations V2 (animé) | 20s | 1080x1080 |
+| `Tutorial-PEB-August` | Tutoriel PEB avec avatar August | 28s | 1920x1080 |
+| `Tutorial-PEB-Nicolas` | Tutoriel PEB avec avatar perso | 33s | 1920x1080 |
+| `Tutorial-PEB-PRO` | Tutoriel PEB version cinématique | 33s | 1920x1080 |
 
 ---
 
@@ -225,7 +233,79 @@ Les skills sont dans `.claude/skills/` :
 
 ---
 
+---
+
+# TUTORIAL PEB - Avatar IA + Infographies
+
+## Vue d'ensemble
+
+Module combinant :
+- **HeyGen** : Génération vidéo avatar (stock ou personnalisé, voix clonée)
+- **OpenAI Whisper** : Transcription avec timestamps mot par mot
+- **Remotion** : Composition finale avec infographies synchronisées
+
+## Compositions disponibles
+
+| ID | Description | Avatar | Durée |
+|----|-------------|--------|-------|
+| `Tutorial-PEB-August` | Split-screen classique | August (stock) | 28s |
+| `Tutorial-PEB-Nicolas` | Fond sombre assorti | Nicolas (perso) | 33s |
+| `Tutorial-PEB-PRO` | Version cinématique | Nicolas (perso) | 33s |
+
+## Workflow de création
+
+```bash
+# 1. Générer la vidéo avatar (HeyGen)
+node generate-heygen.js
+
+# 2. Vérifier le statut
+node check-heygen-status.js <video_id>
+
+# 3. Transcrire avec Whisper (timestamps mot par mot)
+node transcribe-video.js
+
+# 4. Prévisualiser dans Remotion
+npm run dev
+
+# 5. Exporter
+npx remotion render Tutorial-PEB-PRO out/tutorial-pro.mp4
+```
+
+## Configuration API
+
+Copier `.env.example` vers `.env.local` et ajouter les clés :
+
+| API | Variable | Free tier |
+|-----|----------|-----------|
+| HeyGen | `HEYGEN_API_KEY` | 3 vidéos/mois |
+| OpenAI | `OPENAI_API_KEY` | Pay-per-use (~$0.006/min) |
+| ElevenLabs | `ELEVENLABS_API_KEY` | 10,000 chars/mois |
+
+## Fonctionnalités PRO
+
+- **Avatar flottant** : Position différente par scène (coins, côtés)
+- **Mots-clés animés** : Synchronisés avec la voix (timestamps Whisper)
+- **Effets visuels** : Particules, grille animée, Ken Burns
+- **Transitions** : Fade entre scènes, spring animations
+- **Audio** : Musique corporate en fond (15% volume)
+- **Branding** : Logo PEB, barre de progression, watermark
+
+---
+
 ## Notes de Session
+
+### 27/01/2026 (nuit)
+- **Module Tutorial PEB** complet
+  - Génération vidéo HeyGen avec avatar stock (August) et personnalisé (Nicolas)
+  - Transcription OpenAI Whisper avec timestamps mot par mot
+  - 3 compositions Remotion : split-screen, fond assorti, cinématique PRO
+  - Version PRO : avatar flottant, particules, transitions, musique
+  - Export final : `out/peb-tutorial-pro.mp4` (20 MB, 33s)
+- **Scripts utilitaires** créés
+  - `generate-heygen.js` : Génération vidéo avatar
+  - `check-heygen-status.js` : Vérification statut
+  - `transcribe-video.js` : Transcription Whisper
+  - `list-avatars.js`, `list-voices.js` : Exploration API
 
 ### 27/01/2026 (soir)
 - **Restructuration projet** pour GitHub

@@ -43,5 +43,12 @@ _references/
 remotion-app/public/sounds/music/eval-flow-bg.*
 remotion-app/public/sounds/music/upbeat/
 
+# Tutorial generated files (too large for git)
+remotion-app/public/tutorial/avatars/*.mp4
+remotion-app/public/tutorial/avatars/completed-video.json
+remotion-app/public/tutorial/avatars/pending-*.json
+remotion-app/public/tutorial/voiceovers/*.mp3
+remotion-app/public/tutorial/voiceovers/*/*.mp3
+
 # UVCW internal documentation
 UVCW.md

@@ -1,0 +1,35 @@
+{
+  "name": "peb-intro",
+  "voice": "XrExE9yKIg1WjnnlVkGX",
+  "model": "eleven_multilingual_v2",
+  "character": "narrator",
+  "scenes": [
+    {
+      "id": "scene1",
+      "text": "Saviez-vous que depuis 2021, tout bâtiment neuf en Wallonie doit être quasi zéro énergie ?",
+      "duration": 5,
+      "character": "dramatic"
+    },
+    {
+      "id": "scene2",
+      "text": "La PEB, Performance Énergétique des Bâtiments, encadre la construction et la rénovation depuis 2008.",
+      "duration": 7
+    },
+    {
+      "id": "scene3",
+      "text": "L'objectif ? Réduire les émissions de CO2 et maîtriser vos factures d'énergie.",
+      "duration": 6
+    },
+    {
+      "id": "scene4",
+      "text": "Isolation thermique K35, ventilation contrôlée, étude de faisabilité, et bientôt : bornes de recharge obligatoires.",
+      "duration": 8
+    },
+    {
+      "id": "scene5",
+      "text": "Retrouvez le guide complet sur uvcw.be",
+      "duration": 4,
+      "character": "calm"
+    }
+  ]
+}
