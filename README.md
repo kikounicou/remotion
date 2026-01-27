@@ -44,6 +44,11 @@ remotion/
 │   │   │   ├── eval-workflow/   # Workflow multi-etapes
 │   │   │   └── eval-workflow-flow/ # Flow diagram anime
 │   │   │
+│   │   ├── tutorial/            # Tutoriels video avec avatar IA
+│   │   │   ├── components/      # AvatarPanel, InfoPanel
+│   │   │   ├── config/          # Theme, layout split-screen
+│   │   │   └── TUTORIAL.md      # Documentation
+│   │   │
 │   │   ├── shared/              # Bibliotheques partagees
 │   │   │   └── sounds/          # Sound design (6 presets)
 │   │   │
@@ -165,6 +170,25 @@ npx remotion render Infographie-EvalFlowV2 output.mp4
 
 ### 4. (Optionnel) Ajouter les sons
 Voir [SOUNDS-SETUP.md](SOUNDS-SETUP.md) pour telecharger les sons gratuits depuis Pixabay.
+
+### 5. (Optionnel) Configurer les APIs pour le module Tutorial
+
+Le module Tutorial utilise des APIs externes pour generer des voix et avatars IA.
+
+```bash
+# Copier le fichier d'exemple
+cd remotion-app
+cp .env.example .env.local
+
+# Editer .env.local avec vos cles API
+```
+
+| API | Inscription | Free tier |
+|-----|-------------|-----------|
+| [ElevenLabs](https://elevenlabs.io/) | Profile > API Keys | 10,000 caracteres/mois |
+| [HeyGen](https://www.heygen.com/) | Settings > API | 1 credit (~1 min video) |
+
+Le fichier `.env.local` n'est **jamais committe** (protege par .gitignore).
 
 ---
 
