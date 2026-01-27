@@ -15,12 +15,18 @@
 ### Assets autorisés
 - Musique/images libres de droits uniquement (Pixabay, Unsplash, etc.)
 - Toujours vérifier la licence avant d'ajouter un asset
+- **Sons Pixabay** : Libres de droits, redistribuables (voir SOUNDS-SETUP.md)
 
 ---
 
 ## Vue d'ensemble
 
 Ce projet est un espace d'apprentissage pour **Remotion**, un framework React pour créer des vidéos programmatiquement.
+
+**Trois parties principales :**
+1. **Tutoriels** (`exercises/`) - Exercices d'apprentissage, publics
+2. **UVCW** (`uvcw/`) - Module professionnel → voir [UVCW.md](remotion-app/src/uvcw/UVCW.md)
+3. **Shared** (`shared/`) - Bibliothèques partagées (sons, etc.) → voir [SOUNDS.md](remotion-app/src/shared/sounds/SOUNDS.md)
 
 ---
 
@@ -33,38 +39,25 @@ remotion/
 │   │   ├── Root.tsx                    # Compositions (liste plate)
 │   │   ├── HelloWorld.tsx              # Ex1-1-HelloWorld
 │   │   ├── HelloWorld/                 # Composants réutilisables
-│   │   └── exercises/
-│   │       ├── ex1-basics/             # Niveau 1 - Bases
-│   │       ├── ex2-sequencing/         # Niveau 2 - Séquencement
-│   │       ├── ex3-media/              # Niveau 3 - Média
-│   │       ├── ex4-text/               # Niveau 4 - Texte
-│   │       ├── ex5-branding/           # Niveau 5 - Branding
-│   │       └── ex6-infographics/       # Niveau 6 - Infographies
-│   ├── public/                         # Assets libres de droits
+│   │   ├── exercises/                  # TUTORIELS (publics)
+│   │   │   ├── ex1-basics/
+│   │   │   ├── ex2-sequencing/
+│   │   │   ├── ex3-media/
+│   │   │   ├── ex4-text/
+│   │   │   ├── ex5-branding/
+│   │   │   └── ex6-infographics/
+│   │   ├── shared/                     # BIBLIOTHÈQUES PARTAGÉES
+│   │   │   └── sounds/                 # → voir SOUNDS.md
+│   │   └── uvcw/                       # MODULE PRO → voir UVCW.md
+│   ├── public/
+│   │   ├── sounds/                     # Bibliothèque sons partagée (27 fichiers)
+│   │   ├── (assets exercices)
+│   │   └── uvcw/                       # Assets UVCW
 │   └── package.json
-├── CLAUDE.md                           # Ce fichier
+├── CLAUDE.md                           # Ce fichier (tutoriels)
 ├── README.md                           # Guide de démarrage
-└── .gitignore                          # Exclut secrets, .env, node_modules
+└── .gitignore
 ```
-
----
-
-## Compositions disponibles
-
-| ID | Description | Durée | Format |
-|----|-------------|-------|--------|
-| `Ex1-1-HelloWorld` | Template avec badge animé et musique | 5s | 1920x1080 |
-| `Ex1-2-CounterComparison` | 4 compteurs avec easings différents | 4s | 1920x1080 |
-| `Ex2-1-Slideshow` | 3 slides avec transitions fade | 5s | 1920x1080 |
-| `Ex2-2-VideoTemplate` | Template Intro/Contenu/Outro | 7s | 1920x1080 |
-| `Ex3-1-ImageShowcase` | Ken Burns effect sur 3 images | 7.6s | 1920x1080 |
-| `Ex4-1-WordByWord` | Texte mot par mot style TikTok | 5s | 1920x1080 |
-| `Ex4-2-AnimatedQuote` | Citation animée style LinkedIn | 6s | 1080x1080 |
-| `Ex5-1-BrandKit` | Palette couleurs, typos, logo | 6s | 1920x1080 |
-| `Ex5-2-LowerThirds` | 3 variantes de bandeaux nom/titre | 10s | 1920x1080 |
-| `Ex6-1-AnimatedStats` | Compteurs, barres, donut charts | 6s | 1920x1080 |
-| `Ex6-2-ArticleToVideo` | Points clés d'article → vidéo | 9s | 1920x1080 |
-| `Dev-Logo` | Logo seul pour tests | 5s | 1920x1080 |
 
 ---
 
@@ -83,6 +76,27 @@ npx remotion render Ex1-1-HelloWorld output.mp4
 # Rendu image fixe
 npx remotion still Ex1-1-HelloWorld output.png --frame=0
 ```
+
+---
+
+# TUTORIELS - Exercices d'apprentissage
+
+## Compositions disponibles
+
+| ID | Description | Durée | Format |
+|----|-------------|-------|--------|
+| `Ex1-1-HelloWorld` | Template avec badge animé et musique | 5s | 1920x1080 |
+| `Ex1-2-CounterComparison` | 4 compteurs avec easings différents | 4s | 1920x1080 |
+| `Ex2-1-Slideshow` | 3 slides avec transitions fade | 5s | 1920x1080 |
+| `Ex2-2-VideoTemplate` | Template Intro/Contenu/Outro | 7s | 1920x1080 |
+| `Ex3-1-ImageShowcase` | Ken Burns effect sur 3 images | 7.6s | 1920x1080 |
+| `Ex4-1-WordByWord` | Texte mot par mot style TikTok | 5s | 1920x1080 |
+| `Ex4-2-AnimatedQuote` | Citation animée style LinkedIn | 6s | 1080x1080 |
+| `Ex5-1-BrandKit` | Palette couleurs, typos, logo | 6s | 1920x1080 |
+| `Ex5-2-LowerThirds` | 3 variantes de bandeaux nom/titre | 10s | 1920x1080 |
+| `Ex6-1-AnimatedStats` | Compteurs, barres, donut charts | 6s | 1920x1080 |
+| `Ex6-2-ArticleToVideo` | Points clés d'article → vidéo | 9s | 1920x1080 |
+| `Dev-Logo` | Logo seul pour tests | 5s | 1920x1080 |
 
 ---
 
@@ -147,6 +161,7 @@ npx remotion still Ex1-1-HelloWorld output.png --frame=0
 - `useCurrentFrame()` pour toutes les animations
 - `staticFile()` pour les assets du dossier `public/`
 - `random(seed)` pour la randomisation (déterministe)
+- `layout="none"` sur `<Sequence>` si positionnement custom
 
 ### À NE PAS FAIRE
 - `Math.random()` - interdit (non déterministe)
@@ -156,6 +171,15 @@ npx remotion still Ex1-1-HelloWorld output.png --frame=0
 ---
 
 ## Notes de Session
+
+### 27/01/2026 (soir)
+- **Bibliothèque de sons partagée** créée (`src/shared/sounds/`)
+  - 27 fichiers audio (42MB) - Envato Elements
+  - Déplacée de `public/uvcw/sounds/` vers `public/sounds/`
+  - 7 presets : cinematic, corporate, social, minimal, sfxOnly, educational, silent
+  - Documentation : `src/shared/sounds/SOUNDS.md`
+- Module UVCW avec sound design complet
+- Documentation UVCW.md mise à jour
 
 ### 24/01/2026
 - Exercices 1.1 à 6.2 complétés

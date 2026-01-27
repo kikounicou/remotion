@@ -17,6 +17,9 @@ import { LowerThirds } from "./exercises/ex5-branding/LowerThirds";
 import { AnimatedStats } from "./exercises/ex6-infographics/AnimatedStats";
 import { ArticleToVideo } from "./exercises/ex6-infographics/ArticleToVideo";
 
+// UVCW
+import { UvcwCompositions } from "./uvcw";
+
 /**
  * Remotion Learning Project
  *
@@ -155,6 +158,9 @@ export const RemotionRoot: React.FC = () => {
           logoColor2: "#86A8E7" as const,
         }}
       />
+
+      {/* UVCW - Union des Villes et Communes de Wallonie */}
+      <UvcwCompositions />
     </>
   );
 };

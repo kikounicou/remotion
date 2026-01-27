@@ -30,3 +30,12 @@ npm-debug.log*
 # Cache
 .cache/
 *.tsbuildinfo
+
+# Reference files (for analysis only, not part of the project)
+_references/
+
+# Sound files (download separately - see SOUNDS-SETUP.md)
+remotion-app/public/sounds/
+
+# UVCW internal documentation
+UVCW.md

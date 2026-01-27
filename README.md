@@ -1,38 +1,146 @@
-# Remotion Learning Project
+# 🎬 Remotion + Claude Code
 
-Un parcours d'apprentissage progressif pour maîtriser **Remotion**, le framework React pour créer des vidéos programmatiques.
+> Créer des vidéos programmatiques avec React, propulsé par l'IA.
 
-## Pourquoi ce repo ?
+[![Remotion](https://img.shields.io/badge/Remotion-5.0-blue)](https://www.remotion.dev/)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-AI%20Powered-purple)](https://claude.ai/claude-code)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-Ce projet est conçu pour apprendre Remotion **étape par étape**, du plus simple au plus avancé. Chaque exercice introduit de nouveaux concepts et s'appuie sur les précédents.
+---
 
-**Idéal pour :**
-- Développeurs React voulant créer des vidéos
-- Créateurs de contenu cherchant à automatiser
-- Marketeurs voulant des vidéos personnalisées à grande échelle
+## 🚀 Ce projet démontre
 
-## Qu'est-ce que Remotion ?
+Comment **Claude Code** avec le skill [Remotion Best Practices](https://skills.sh/remotion-dev/skills/remotion-best-practices) peut générer des vidéos professionnelles en quelques minutes :
+
+- ✅ **Animations fluides** - Spring physics, easing, interpolation
+- ✅ **Séquencement** - Transitions, timelines, compositions
+- ✅ **Texte dynamique** - Word-by-word, citations animées
+- ✅ **Sound design** - Musique, impacts, whooshes
+- ✅ **Templates réutilisables** - Branding, infographies
+
+---
+
+## 🎥 Démos
+
+### Animation de base
+https://github.com/kikounicou/remotion/raw/main/demos/ex1-helloworld.mp4
+
+### Citation animée (LinkedIn style)
+https://github.com/kikounicou/remotion/raw/main/demos/ex4-animated-quote.mp4
+
+### Vidéo complète avec sound design
+https://github.com/kikounicou/remotion/raw/main/demos/uvcw-ultimate-sound.mp4
+
+---
+
+## 📚 Qu'est-ce que Remotion ?
 
 [Remotion](https://www.remotion.dev/) transforme du code React en vidéos. Chaque frame = un composant React.
 
 ```tsx
-// Une vidéo, c'est juste du React !
 const MyVideo = () => {
-  const frame = useCurrentFrame(); // Frame actuelle (0, 1, 2...)
-  const opacity = interpolate(frame, [0, 30], [0, 1]); // Fade in
+  const frame = useCurrentFrame();
+  const opacity = interpolate(frame, [0, 30], [0, 1]);
   return <h1 style={{ opacity }}>Hello World</h1>;
 };
 ```
 
 **Avantages :**
-- Code versionnable (Git)
-- Animations précises au frame près
-- Automatisation possible (API, CLI)
-- Rendu cloud via AWS Lambda (vidéos à grande échelle)
+- 🔧 Code versionnable (Git)
+- 🎯 Animations précises au frame près
+- 🤖 Automatisation possible (API, CLI)
+- ☁️ Rendu cloud via AWS Lambda
 
 ---
 
-## Démarrage rapide
+## 🤖 Claude Code + Remotion Skill
+
+Ce projet a été créé avec [Claude Code](https://claude.ai/claude-code) utilisant le skill **Remotion Best Practices** disponible sur [skills.sh](https://skills.sh/remotion-dev/skills/remotion-best-practices).
+
+### Comment ça marche ?
+
+1. **Installez Claude Code** dans votre terminal
+2. **Activez le skill Remotion** : `/skill remotion`
+3. **Décrivez ce que vous voulez** : "Crée une vidéo avec un texte qui apparaît mot par mot"
+4. **Claude génère le code** Remotion correspondant
+
+### Exemple de prompts
+
+```
+"Crée une animation de compteur qui va de 0 à 100 avec un effet spring"
+
+"Fais une vidéo LinkedIn avec une citation animée ligne par ligne"
+
+"Génère un template vidéo avec intro, contenu et outro"
+```
+
+---
+
+## 🏗️ Structure du projet
+
+```
+remotion/
+├── remotion-app/
+│   ├── src/
+│   │   ├── exercises/        # 📖 Tutoriels progressifs
+│   │   │   ├── ex1-basics/   # Animations de base
+│   │   │   ├── ex2-sequencing/   # Séquences & transitions
+│   │   │   ├── ex3-media/    # Images, Ken Burns
+│   │   │   ├── ex4-text/     # Texte dynamique
+│   │   │   ├── ex5-branding/ # Identité visuelle
+│   │   │   └── ex6-infographics/ # Data viz
+│   │   ├── shared/           # 🔊 Bibliothèques partagées
+│   │   │   └── sounds/       # Sound design
+│   │   └── uvcw/             # 🏢 Exemple professionnel
+│   └── public/
+│       └── sounds/           # Fichiers audio (Pixabay)
+├── demos/                    # 🎬 Vidéos de démonstration
+├── SOUNDS-SETUP.md           # Guide téléchargement sons
+└── README.md
+```
+
+---
+
+## 🎓 Parcours d'apprentissage
+
+### Niveau 1 - Les Bases
+| Composition | Description | Concepts |
+|-------------|-------------|----------|
+| `Ex1-1-HelloWorld` | Badge animé avec musique | `useCurrentFrame()`, `interpolate()`, `spring()` |
+| `Ex1-2-CounterComparison` | 4 compteurs avec easings | `Easing.in()`, `Easing.out()` |
+
+### Niveau 2 - Séquencement
+| Composition | Description | Concepts |
+|-------------|-------------|----------|
+| `Ex2-1-Slideshow` | 3 slides avec transitions | `<TransitionSeries>`, `fade()` |
+| `Ex2-2-VideoTemplate` | Intro/Contenu/Outro | Composants réutilisables |
+
+### Niveau 3 - Média
+| Composition | Description | Concepts |
+|-------------|-------------|----------|
+| `Ex3-1-ImageShowcase` | Ken Burns sur images | Zoom, pan animés |
+
+### Niveau 4 - Texte
+| Composition | Description | Concepts |
+|-------------|-------------|----------|
+| `Ex4-1-WordByWord` | Texte mot par mot (TikTok) | Animation séquentielle |
+| `Ex4-2-AnimatedQuote` | Citation (LinkedIn) | Typography, timing |
+
+### Niveau 5 - Branding
+| Composition | Description | Concepts |
+|-------------|-------------|----------|
+| `Ex5-1-BrandKit` | Palette, fonts, logo | Config centralisée |
+| `Ex5-2-LowerThirds` | Bandeaux animés | Composants pro |
+
+### Niveau 6 - Infographies
+| Composition | Description | Concepts |
+|-------------|-------------|----------|
+| `Ex6-1-AnimatedStats` | Compteurs, graphiques | Data visualization |
+| `Ex6-2-ArticleToVideo` | Article → Vidéo | Layout automatique |
+
+---
+
+## 🚀 Démarrage rapide
 
 ### 1. Cloner et installer
 
@@ -48,166 +156,66 @@ npm install
 npm run dev
 ```
 
-Ouvrez **http://localhost:3000** (le port peut varier : 3001, 3002...).
+Ouvrez **http://localhost:3000**
 
-### 3. Explorer les exercices
-
-Dans le studio, vous verrez les compositions numérotées :
-
-| ID | Description |
-|----|-------------|
-| `Ex1-1-HelloWorld` | Template avec badge animé et musique |
-| `Ex1-2-CounterComparison` | 4 compteurs avec easings différents |
-| `Ex2-1-Slideshow` | 3 slides avec transitions fade |
-| `Ex2-2-VideoTemplate` | Template Intro/Contenu/Outro |
-| `Ex3-1-ImageShowcase` | Ken Burns effect sur images |
-| `Dev-Logo` | Logo seul pour tests |
-
-### 4. Rendre une vidéo
+### 3. Rendre une vidéo
 
 ```bash
 npx remotion render Ex1-1-HelloWorld output.mp4
 ```
 
----
+### 4. (Optionnel) Ajouter les sons
 
-## Parcours d'apprentissage
-
-### Niveau 1 - Les Bases
-*Comprendre le moteur d'animation*
-
-| ID | Exercice | Concepts |
-|----|----------|----------|
-| `Ex1-1-HelloWorld` | Template modifié avec badge et musique | `useCurrentFrame()`, `interpolate()`, `spring()` |
-| `Ex1-2-CounterComparison` | 4 compteurs avec easings différents | `Easing.in()`, `Easing.out()`, `Easing.inOut()` |
-
-### Niveau 2 - Séquencement
-*Enchaîner des scènes avec transitions*
-
-| ID | Exercice | Concepts |
-|----|----------|----------|
-| `Ex2-1-Slideshow` | 3 slides avec transitions fade | `<TransitionSeries>`, `fade()` |
-| `Ex2-2-VideoTemplate` | Template Intro/Contenu/Outro | Composants réutilisables, schema Zod |
-
-### Niveau 3 - Média
-*Images, vidéos, audio*
-
-| ID | Exercice | Concepts |
-|----|----------|----------|
-| `Ex3-1-ImageShowcase` | Ken Burns effect sur images | `<Img>`, zoom/pan animé |
-| `Ex3-2-VideoOverlay` | Vidéo de fond + texte *(à venir)* | `<Video>`, superposition |
-
-### Niveau 4 - Texte *(à venir)*
-*Animations de texte avancées*
-
-| ID | Exercice | Concepts |
-|----|----------|----------|
-| `Ex4-1-WordByWord` | Texte mot par mot (TikTok) | Animation séquentielle |
-| `Ex4-2-AnimatedQuote` | Citation animée (LinkedIn) | Typography, timing |
-
-### Niveau 5 - Branding *(à venir)*
-*Identité visuelle cohérente*
-
-| ID | Exercice | Concepts |
-|----|----------|----------|
-| `Ex5-1-BrandKit` | Couleurs, fonts, logo | Config centralisée |
-| `Ex5-2-LowerThirds` | Bandeaux animés | Composants pro |
-
-### Niveau 6 - Infographies *(à venir)*
-*Data visualization*
-
-| ID | Exercice | Concepts |
-|----|----------|----------|
-| `Ex6-1-AnimatedStats` | Graphiques animés | Compteurs, barres |
-| `Ex6-2-ArticleToVideo` | Article vers Vidéo | Layout automatique |
-
-### Niveau 7 - Text-to-Speech *(à venir)*
-*Voix off automatique*
-
-| ID | Exercice | Concepts |
-|----|----------|----------|
-| `Ex7-1-TTSBasic` | Intégration ElevenLabs/OpenAI | API TTS |
-| `Ex7-2-SyncedCaptions` | Sous-titres synchronisés | Timestamps |
-
-### Niveau 8 - AWS Lambda *(à venir)*
-*Rendu cloud à grande échelle*
-
-| ID | Exercice | Concepts |
-|----|----------|----------|
-| `Ex8-1-LambdaSetup` | Configuration AWS | `@remotion/lambda` |
-| `Ex8-2-CloudRender` | Rendu via Lambda | S3, serverless |
-| `Ex8-3-VideoAPI` | API de génération | POST vers MP4 |
+Voir [SOUNDS-SETUP.md](SOUNDS-SETUP.md) pour télécharger les sons gratuits depuis Pixabay.
 
 ---
 
-## Concepts clés
+## 🔊 Sound Design
 
-### `useCurrentFrame()` - Le coeur de Remotion
+Ce projet inclut une bibliothèque de sons avec 6 presets prêts à l'emploi :
 
-```tsx
-const frame = useCurrentFrame(); // 0, 1, 2, 3... à chaque frame
-```
-
-### `interpolate()` - Mapper des valeurs
-
-```tsx
-// Frame 0 à 30 : opacity 0 à 1
-const opacity = interpolate(frame, [0, 30], [0, 1], {
-  extrapolateRight: "clamp", // Ne pas dépasser 1
-});
-```
-
-### `spring()` - Animation naturelle
+| Preset | Style | Usage |
+|--------|-------|-------|
+| `cinematic` | Bande-annonce | Contenu impactant |
+| `corporate` | Institutionnel | Présentations |
+| `social` | Dynamique | Réseaux sociaux |
+| `minimal` | Subtil | Tutoriels |
+| `sfxOnly` | SFX uniquement | Voix off externe |
+| `silent` | Muet | Tests |
 
 ```tsx
-const scale = spring({
-  frame,
-  fps,
-  config: { damping: 15, stiffness: 150 },
-});
+import { SOUND_PRESETS } from "./shared/sounds";
+
+// Dans votre composition
+soundPreset: SOUND_PRESETS.cinematic
 ```
 
-### `<Sequence>` - Positionner dans le temps
-
-```tsx
-<Sequence from={30} durationInFrames={60}>
-  <MyComponent /> {/* Apparaît à la frame 30 */}
-</Sequence>
-```
+> ⚠️ Les fichiers audio ne sont pas inclus (licence). Voir [SOUNDS-SETUP.md](SOUNDS-SETUP.md).
 
 ---
 
-## Structure du projet
-
-```
-remotion/
-├── remotion-app/
-│   ├── src/
-│   │   ├── Root.tsx              # Compositions
-│   │   ├── exercises/
-│   │   │   ├── ex1-basics/       # Niveau 1
-│   │   │   ├── ex2-sequencing/   # Niveau 2
-│   │   │   ├── ex3-media/        # Niveau 3
-│   │   │   └── ...
-│   │   └── HelloWorld/           # Composants réutilisables
-│   └── public/                   # Assets (musique, images)
-├── CLAUDE.md                     # Documentation technique
-└── README.md                     # Ce fichier
-```
-
----
-
-## Ressources
+## 📖 Ressources
 
 - [Documentation Remotion](https://www.remotion.dev/docs)
-- [GitHub Remotion](https://github.com/remotion-dev/remotion)
-- [Exemples officiels](https://github.com/remotion-dev/remotion/tree/main/packages/example)
-
-## Assets
-
-- Musique : [Pixabay](https://pixabay.com/music/) (libre de droits)
-- Images : [Unsplash](https://unsplash.com/) (libre de droits)
+- [Remotion Skill sur skills.sh](https://skills.sh/remotion-dev/skills/remotion-best-practices)
+- [Claude Code](https://claude.ai/claude-code)
+- [Pixabay - Sons gratuits](https://pixabay.com/sound-effects/)
 
 ---
 
-*Projet créé avec l'aide de [Claude Code](https://claude.ai/claude-code)*
+## 🙏 Crédits
+
+- **Remotion** - Framework vidéo React
+- **Claude Code** - Assistant IA pour le développement
+- **Pixabay** - Sons libres de droits
+- **Unsplash** - Images libres de droits
+
+---
+
+## 📄 Licence
+
+MIT - Libre d'utilisation, modification et distribution.
+
+---
+
+*Créé avec ❤️ et [Claude Code](https://claude.ai/claude-code)*
