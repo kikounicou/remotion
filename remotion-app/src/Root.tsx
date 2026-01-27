@@ -20,6 +20,16 @@ import { ArticleToVideo } from "./exercises/ex6-infographics/ArticleToVideo";
 // UVCW
 import { UvcwCompositions } from "./uvcw";
 
+// Infographies
+import {
+  EvalWorkflowVideo,
+  EVAL_WORKFLOW_DURATION,
+  EvalWorkflowFlow,
+  EVAL_FLOW_DURATION,
+  EvalWorkflowFlowV2,
+  EVAL_FLOW_V2_DURATION,
+} from "./infographies";
+
 /**
  * Remotion Learning Project
  *
@@ -161,6 +171,34 @@ export const RemotionRoot: React.FC = () => {
 
       {/* UVCW - Union des Villes et Communes de Wallonie */}
       <UvcwCompositions />
+
+      {/* INFOGRAPHIES */}
+      <Composition
+        id="Infographie-EvalWorkflow"
+        component={EvalWorkflowVideo}
+        durationInFrames={EVAL_WORKFLOW_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id="Infographie-EvalFlow"
+        component={EvalWorkflowFlow}
+        durationInFrames={EVAL_FLOW_DURATION}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+
+      <Composition
+        id="Infographie-EvalFlowV2"
+        component={EvalWorkflowFlowV2}
+        durationInFrames={EVAL_FLOW_V2_DURATION}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
     </>
   );
 };

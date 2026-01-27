@@ -23,10 +23,11 @@
 
 Ce projet est un espace d'apprentissage pour **Remotion**, un framework React pour créer des vidéos programmatiquement.
 
-**Trois parties principales :**
+**Quatre parties principales :**
 1. **Tutoriels** (`exercises/`) - Exercices d'apprentissage, publics
-2. **UVCW** (`uvcw/`) - Module professionnel → voir [UVCW.md](remotion-app/src/uvcw/UVCW.md)
-3. **Shared** (`shared/`) - Bibliothèques partagées (sons, etc.) → voir [SOUNDS.md](remotion-app/src/shared/sounds/SOUNDS.md)
+2. **Infographies** (`infographies/`) - Vidéos explicatives animées
+3. **UVCW** (`uvcw/`) - Module professionnel → voir [UVCW.md](remotion-app/src/uvcw/UVCW.md)
+4. **Shared** (`shared/`) - Bibliothèques partagées (sons, etc.) → voir [SOUNDS.md](remotion-app/src/shared/sounds/SOUNDS.md)
 
 ---
 
@@ -46,15 +47,23 @@ remotion/
 │   │   │   ├── ex4-text/
 │   │   │   ├── ex5-branding/
 │   │   │   └── ex6-infographics/
+│   │   ├── infographies/               # VIDÉOS EXPLICATIVES
+│   │   │   ├── eval-workflow/          # Workflow évaluations (slides)
+│   │   │   └── eval-workflow-flow/     # Workflow évaluations (flow animé)
 │   │   ├── shared/                     # BIBLIOTHÈQUES PARTAGÉES
 │   │   │   └── sounds/                 # → voir SOUNDS.md
 │   │   └── uvcw/                       # MODULE PRO → voir UVCW.md
 │   ├── public/
-│   │   ├── sounds/                     # Bibliothèque sons partagée (27 fichiers)
+│   │   ├── sounds/                     # Bibliothèque sons partagée
 │   │   ├── (assets exercices)
 │   │   └── uvcw/                       # Assets UVCW
 │   └── package.json
-├── CLAUDE.md                           # Ce fichier (tutoriels)
+├── .claude/
+│   └── skills/                         # Skills Claude Code
+│       ├── remotion/                   # Best practices Remotion
+│       ├── elevenlabs/                 # Génération voix AI
+│       └── heygen/                     # Avatars vidéo AI
+├── CLAUDE.md                           # Ce fichier
 ├── README.md                           # Guide de démarrage
 └── .gitignore
 ```
@@ -97,6 +106,9 @@ npx remotion still Ex1-1-HelloWorld output.png --frame=0
 | `Ex6-1-AnimatedStats` | Compteurs, barres, donut charts | 6s | 1920x1080 |
 | `Ex6-2-ArticleToVideo` | Points clés d'article → vidéo | 9s | 1920x1080 |
 | `Dev-Logo` | Logo seul pour tests | 5s | 1920x1080 |
+| `Infographie-EvalWorkflow` | Workflow évaluations (slides) | 38s | 1920x1080 |
+| `Infographie-EvalFlow` | Workflow évaluations V1 (flow) | 15s | 1080x1080 |
+| `Infographie-EvalFlowV2` | Workflow évaluations V2 (animé) | 20s | 1080x1080 |
 
 ---
 
@@ -170,20 +182,36 @@ npx remotion still Ex1-1-HelloWorld output.png --frame=0
 
 ---
 
+---
+
+## Skills Claude Code
+
+Les skills sont dans `.claude/skills/` :
+
+| Skill | Description |
+|-------|-------------|
+| `remotion` | Best practices Remotion (animations, séquencement, audio, etc.) |
+| `elevenlabs` | Génération de voix AI pour voiceovers |
+| `heygen` | Création de vidéos avec avatars AI |
+
+---
+
 ## Notes de Session
 
-### 27/01/2026 (soir)
+### 27/01/2026
+- **Module Infographies** créé (`src/infographies/`)
+  - `Infographie-EvalWorkflow` : Version slides (1920x1080, 38s)
+  - `Infographie-EvalFlowV2` : Version flow animé (1080x1080, 20s, fond sombre)
+- **Skills consolidés** dans `.claude/skills/` (remotion, elevenlabs, heygen)
+- Nettoyage des dossiers dupliqués (.agent, .agents, skills/)
+
+### 27/01/2026 (matin)
 - **Bibliothèque de sons partagée** créée (`src/shared/sounds/`)
   - 27 fichiers audio (42MB) - Envato Elements
-  - Déplacée de `public/uvcw/sounds/` vers `public/sounds/`
   - 7 presets : cinematic, corporate, social, minimal, sfxOnly, educational, silent
-  - Documentation : `src/shared/sounds/SOUNDS.md`
 - Module UVCW avec sound design complet
-- Documentation UVCW.md mise à jour
 
 ### 24/01/2026
 - Exercices 1.1 à 6.2 complétés
 - 12 compositions fonctionnelles
 - Ken Burns, WordByWord, LowerThirds, AnimatedStats implémentés
-- Bug corrigé : `<Folder>` causait des écrans noirs → liste plate
-- Bug corrigé : IDs avec points (`1.1-`) → préfixe `Ex` (`Ex1-1-`)

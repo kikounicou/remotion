@@ -4,6 +4,10 @@ node_modules/
 # Build outputs
 dist/
 out/
+build/
+
+# Windows artifacts
+nul
 
 # Environment & secrets
 .env
@@ -33,6 +37,10 @@ npm-debug.log*
 
 # Reference files (for analysis only, not part of the project)
 _references/
+
+# Temporary audio files (check license before committing)
+remotion-app/public/sounds/music/eval-flow-bg.*
+remotion-app/public/sounds/music/upbeat/
 
 # UVCW internal documentation
 UVCW.md
