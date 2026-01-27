@@ -1,7 +1,9 @@
 # Sound Setup Guide
 
-> Les fichiers audio ne sont pas inclus dans ce repo pour des raisons de licence.
-> Ce guide explique comment télécharger des sons gratuits depuis Pixabay.
+> ✅ **Les fichiers audio sont maintenant inclus dans le repo !**
+> Licence Pixabay : libre de droits, redistribuable.
+>
+> Ce guide reste utile si vous voulez ajouter ou remplacer des sons.
 
 ---
 

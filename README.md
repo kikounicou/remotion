@@ -23,13 +23,13 @@ Comment **Claude Code** avec le skill [Remotion Best Practices](https://skills.s
 ## 🎥 Démos
 
 ### Animation de base
-https://github.com/kikounicou/remotion/raw/main/demos/ex1-helloworld.mp4
+<video src="https://github.com/kikounicou/remotion/raw/main/demos/ex1-helloworld.mp4" controls width="400"></video>
 
 ### Citation animée (LinkedIn style)
-https://github.com/kikounicou/remotion/raw/main/demos/ex4-animated-quote.mp4
+<video src="https://github.com/kikounicou/remotion/raw/main/demos/ex4-animated-quote.mp4" controls width="400"></video>
 
 ### Vidéo complète avec sound design
-https://github.com/kikounicou/remotion/raw/main/demos/uvcw-ultimate-sound.mp4
+<video src="https://github.com/kikounicou/remotion/raw/main/demos/uvcw-ultimate-sound.mp4" controls width="400"></video>
 
 ---
 
@@ -190,7 +190,7 @@ import { SOUND_PRESETS } from "./shared/sounds";
 soundPreset: SOUND_PRESETS.cinematic
 ```
 
-> ⚠️ Les fichiers audio ne sont pas inclus (licence). Voir [SOUNDS-SETUP.md](SOUNDS-SETUP.md).
+> ✅ Les fichiers audio Pixabay sont inclus dans le repo (licence libre de droits).
 
 ---
 
