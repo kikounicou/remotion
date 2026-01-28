@@ -52,3 +52,6 @@ remotion-app/public/tutorial/voiceovers/*/*.mp3
 
 # UVCW internal documentation
 UVCW.md
+
+# LinkedIn Showcase videos (generated outputs, too large)
+remotion-app/public/montage_linkedin/

@@ -23,12 +23,13 @@
 
 Ce projet est un espace d'apprentissage pour **Remotion**, un framework React pour créer des vidéos programmatiquement.
 
-**Cinq parties principales :**
-1. **Tutoriels** (`exercises/`) - Exercices d'apprentissage, publics
+**Six parties principales :**
+1. **Tutoriels** (`exercises/`) - Exercices d'apprentissage progressifs
 2. **Infographies** (`infographies/`) - Vidéos explicatives animées
 3. **Tutorial PEB** (`tutorial/`) - Tutoriels avec avatar IA (HeyGen + Whisper)
 4. **UVCW** (`uvcw/`) - Module professionnel → voir [UVCW.md](remotion-app/src/uvcw/UVCW.md)
-5. **Shared** (`shared/`) - Bibliothèques partagées (sons, etc.) → voir [SOUNDS.md](remotion-app/src/shared/sounds/SOUNDS.md)
+5. **Showcase** (`showcase/`) - Montages finaux pour LinkedIn
+6. **Shared** (`shared/`) - Bibliothèques partagées (sons, etc.)
 
 ---
 
@@ -55,8 +56,11 @@ remotion/
 │   │   │   ├── PebTutorial.tsx         # Version split-screen (August)
 │   │   │   ├── PebTutorialNicolas.tsx  # Version avec avatar perso
 │   │   │   └── PebTutorialPro.tsx      # Version cinématique complète
+│   │   ├── showcase/                   # MONTAGES FINAUX
+│   │   │   ├── LinkedInShowcase.tsx    # Version V1 (16:9)
+│   │   │   └── LinkedInShowcaseV2.tsx  # Version V2 (carré)
 │   │   ├── shared/                     # BIBLIOTHÈQUES PARTAGÉES
-│   │   │   └── sounds/                 # → voir SOUNDS.md
+│   │   │   └── sounds/                 # Sound design
 │   │   └── uvcw/                       # MODULE PRO → voir UVCW.md
 │   ├── public/
 │   │   ├── sounds/                     # Bibliothèque sons partagée
@@ -117,6 +121,8 @@ npx remotion still Ex1-1-HelloWorld output.png --frame=0
 | `Tutorial-PEB-August` | Tutoriel PEB avec avatar August | 28s | 1920x1080 |
 | `Tutorial-PEB-Nicolas` | Tutoriel PEB avec avatar perso | 33s | 1920x1080 |
 | `Tutorial-PEB-PRO` | Tutoriel PEB version cinématique | 33s | 1920x1080 |
+| `LinkedIn-Showcase` | Montage V1 (16:9) | ~2min | 1920x1080 |
+| `LinkedIn-Showcase-V2` | Montage V2 complet (carré) | ~2min16s | 1080x1080 |
 
 ---
 
@@ -292,7 +298,69 @@ Copier `.env.example` vers `.env.local` et ajouter les clés :
 
 ---
 
+# SHOWCASE - Montages finaux
+
+## Vue d'ensemble
+
+Le module `showcase/` contient les montages video finaux presentant le travail accompli.
+
+## Compositions disponibles
+
+| ID | Description | Format | Duree |
+|----|-------------|--------|-------|
+| `LinkedIn-Showcase` | Montage V1 (16:9) | 1920x1080 | ~2min |
+| `LinkedIn-Showcase-V2` | Montage V2 (carre, complet) | 1080x1080 | ~2min16s |
+
+## LinkedIn Showcase V2 - Features
+
+La version V2 est le montage final complet avec :
+
+### Audio ducking automatique
+- Musique de fond a 25% par defaut
+- Baisse a 10% quand une video a du son (avatar, SFX)
+- Configuration via `AUDIO_DUCK_SEGMENTS`
+
+### Chapitres avec barre de progression
+- 8 chapitres : Intro, HelloWorld, Sequencing, UVCW, Tutorial, Infographies, ChatExchange, Outro
+- Barre de progression multicolore en bas
+
+### VideoFrame avec mode fullscreen
+```tsx
+<VideoFrame videoSrc="video.mp4" fullscreen={true} />
+```
+- `fullscreen={true}` : Video en plein ecran (objectFit: cover)
+- `fullscreen={false}` : Letterbox avec fond mauve (objectFit: contain)
+
+### ChatExchange - Animation conversation
+Montre l'echange conversationnel avec Claude Code :
+- Messages animes avec spring
+- Indicateur de frappe "..."
+- Style chat avec bulles
+
+### Outils presentes
+1. **Claude Code** - Assistant IA CLI
+2. **Skills.sh** - Marketplace de skills
+3. **Remotion** - Framework video React
+4. **ElevenLabs** - Voix IA
+5. **HeyGen** - Avatars IA
+
+---
+
 ## Notes de Session
+
+### 28/01/2026
+- **LinkedIn Showcase V2** finalise
+  - Format carre 1080x1080 pour LinkedIn
+  - Audio ducking automatique (25% → 10%)
+  - Fullscreen pour videos carrees, letterbox pour 16:9
+  - ChatExchange anime montrant la conversation avec Claude
+  - GitHub card avec lien repo
+  - Duree totale : 4090 frames (~2min16s)
+  - Export : 26.8 MB
+- **Documentation GitHub** mise a jour
+  - README.md avec demos, stack, parcours d'apprentissage
+  - CLAUDE.md avec section Showcase complete
+  - Verification securite OK (pas de cles API)
 
 ### 27/01/2026 (nuit)
 - **Module Tutorial PEB** complet

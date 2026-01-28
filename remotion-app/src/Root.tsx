@@ -35,6 +35,14 @@ import { PebTutorial } from "./tutorial/PebTutorial";
 import { PebTutorialNicolas } from "./tutorial/PebTutorialNicolas";
 import { PebTutorialPro } from "./tutorial/PebTutorialPro";
 
+// Showcase - LinkedIn Montage
+import {
+  LinkedInShowcase,
+  LINKEDIN_SHOWCASE_DURATION,
+  LinkedInShowcaseV2,
+  LINKEDIN_SHOWCASE_V2_DURATION,
+} from "./showcase";
+
 /**
  * Remotion Learning Project
  *
@@ -228,6 +236,25 @@ export const RemotionRoot: React.FC = () => {
         id="Infographie-EvalFlowV2"
         component={EvalWorkflowFlowV2}
         durationInFrames={EVAL_FLOW_V2_DURATION}
+        fps={30}
+        width={1080}
+        height={1080}
+      />
+
+      {/* SHOWCASE - LinkedIn Montage */}
+      <Composition
+        id="LinkedIn-Showcase"
+        component={LinkedInShowcase}
+        durationInFrames={LINKEDIN_SHOWCASE_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id="LinkedIn-Showcase-V2"
+        component={LinkedInShowcaseV2}
+        durationInFrames={LINKEDIN_SHOWCASE_V2_DURATION}
         fps={30}
         width={1080}
         height={1080}

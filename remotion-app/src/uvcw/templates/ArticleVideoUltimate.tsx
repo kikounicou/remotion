@@ -1,4 +1,10 @@
-import { AbsoluteFill, Sequence, Audio, staticFile, useVideoConfig } from "remotion";
+import {
+  AbsoluteFill,
+  Sequence,
+  Audio,
+  staticFile,
+  useVideoConfig,
+} from "remotion";
 import { MatiereSlug } from "../config/matieres";
 import { KenBurnsEffect } from "../components/KenBurnsImage";
 import { HookSlide } from "../components/HookSlide";
@@ -136,35 +142,25 @@ export const ArticleVideoUltimate: React.FC<ArticleVideoUltimateProps> = ({
       {/* 💥 Impact sound sur le hook */}
       {impactSound && (
         <Sequence from={5} layout="none">
-          <Audio
-            src={staticFile(impactSound)}
-            volume={impactVolume}
-          />
-        </Sequence>
-      )}
-
-      {/* 🌊 Whoosh sur transition vers title */}
-      {transitionSound && (
-        <Sequence from={hookDuration - 5} layout="none">
-          <Audio
-            src={staticFile(transitionSound)}
-            volume={transitionVolume}
-          />
+          <Audio src={staticFile(impactSound)} volume={impactVolume} />
         </Sequence>
       )}
 
       {/* 🔊 Pop sounds pour chaque bullet */}
-      {bulletSound && showBullets && pointsCles.map((_, index) => {
-        const bulletStartFrame = bulletsStart + 25 + index * framesPerPoint;
-        return (
-          <Sequence key={`bullet-sound-${index}`} from={bulletStartFrame} layout="none">
-            <Audio
-              src={staticFile(bulletSound)}
-              volume={bulletVolume}
-            />
-          </Sequence>
-        );
-      })}
+      {bulletSound &&
+        showBullets &&
+        pointsCles.map((_, index) => {
+          const bulletStartFrame = bulletsStart + 25 + index * framesPerPoint;
+          return (
+            <Sequence
+              key={`bullet-sound-${index}`}
+              from={bulletStartFrame}
+              layout="none"
+            >
+              <Audio src={staticFile(bulletSound)} volume={bulletVolume} />
+            </Sequence>
+          );
+        })}
 
       {/* 🌊 Whoosh sur transition vers outro */}
       {transitionSound && (
@@ -172,16 +168,6 @@ export const ArticleVideoUltimate: React.FC<ArticleVideoUltimateProps> = ({
           <Audio
             src={staticFile(transitionSound)}
             volume={transitionVolume * 0.8}
-          />
-        </Sequence>
-      )}
-
-      {/* ✅ Success sound sur outro */}
-      {outroSound && (
-        <Sequence from={outroStart + 15} layout="none">
-          <Audio
-            src={staticFile(outroSound)}
-            volume={outroVolume}
           />
         </Sequence>
       )}
@@ -202,7 +188,11 @@ export const ArticleVideoUltimate: React.FC<ArticleVideoUltimateProps> = ({
       </Sequence>
 
       {/* TITLE - Ken Burns amplifié */}
-      <Sequence from={titleStart} durationInFrames={titleDuration} layout="none">
+      <Sequence
+        from={titleStart}
+        durationInFrames={titleDuration}
+        layout="none"
+      >
         <TitleSlideKenBurns
           titre={titre}
           accroche={accroche}
@@ -217,7 +207,11 @@ export const ArticleVideoUltimate: React.FC<ArticleVideoUltimateProps> = ({
 
       {/* BULLETS - Word-by-word */}
       {showBullets && (
-        <Sequence from={bulletsStart} durationInFrames={actualBulletsDuration} layout="none">
+        <Sequence
+          from={bulletsStart}
+          durationInFrames={actualBulletsDuration}
+          layout="none"
+        >
           <BulletPointsAnimated
             points={pointsCles}
             matiere={matiere}
@@ -229,7 +223,11 @@ export const ArticleVideoUltimate: React.FC<ArticleVideoUltimateProps> = ({
       )}
 
       {/* OUTRO - CTA */}
-      <Sequence from={outroStart} durationInFrames={outroDuration} layout="none">
+      <Sequence
+        from={outroStart}
+        durationInFrames={outroDuration}
+        layout="none"
+      >
         <Outro matiere={matiere} articleUrl={articleUrl} />
       </Sequence>
 
