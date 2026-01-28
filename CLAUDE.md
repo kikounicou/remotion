@@ -5,6 +5,7 @@
 **Ce projet est sur un repo GitHub public : https://github.com/kikounicou/remotion**
 
 ### Règles de sécurité (OBLIGATOIRE)
+
 - **JAMAIS** de secrets, API keys, tokens, mots de passe dans le code
 - **JAMAIS** de fichiers .env committés (déjà dans .gitignore)
 - **JAMAIS** de credentials ou fichiers sensibles
@@ -13,6 +14,7 @@
 - **Git push** : Uniquement quand l'utilisateur le demande explicitement
 
 ### Assets autorisés
+
 - Musique/images libres de droits uniquement (Pixabay, Unsplash, etc.)
 - Toujours vérifier la licence avant d'ajouter un asset
 - **Sons Pixabay** : Libres de droits, redistribuables (voir SOUNDS-SETUP.md)
@@ -24,10 +26,11 @@
 Ce projet est un espace d'apprentissage pour **Remotion**, un framework React pour créer des vidéos programmatiquement.
 
 **Six parties principales :**
+
 1. **Tutoriels** (`exercises/`) - Exercices d'apprentissage progressifs
 2. **Infographies** (`infographies/`) - Vidéos explicatives animées
 3. **Tutorial PEB** (`tutorial/`) - Tutoriels avec avatar IA (HeyGen + Whisper)
-4. **UVCW** (`uvcw/`) - Module professionnel → voir [UVCW.md](remotion-app/src/uvcw/UVCW.md)
+4. **UVCW** (`uvcw/`) - Module professionnel
 5. **Showcase** (`showcase/`) - Montages finaux pour LinkedIn
 6. **Shared** (`shared/`) - Bibliothèques partagées (sons, etc.)
 
@@ -101,63 +104,66 @@ npx remotion still Ex1-1-HelloWorld output.png --frame=0
 
 ## Compositions disponibles
 
-| ID | Description | Durée | Format |
-|----|-------------|-------|--------|
-| `Ex1-1-HelloWorld` | Template avec badge animé et musique | 5s | 1920x1080 |
-| `Ex1-2-CounterComparison` | 4 compteurs avec easings différents | 4s | 1920x1080 |
-| `Ex2-1-Slideshow` | 3 slides avec transitions fade | 5s | 1920x1080 |
-| `Ex2-2-VideoTemplate` | Template Intro/Contenu/Outro | 7s | 1920x1080 |
-| `Ex3-1-ImageShowcase` | Ken Burns effect sur 3 images | 7.6s | 1920x1080 |
-| `Ex4-1-WordByWord` | Texte mot par mot style TikTok | 5s | 1920x1080 |
-| `Ex4-2-AnimatedQuote` | Citation animée style LinkedIn | 6s | 1080x1080 |
-| `Ex5-1-BrandKit` | Palette couleurs, typos, logo | 6s | 1920x1080 |
-| `Ex5-2-LowerThirds` | 3 variantes de bandeaux nom/titre | 10s | 1920x1080 |
-| `Ex6-1-AnimatedStats` | Compteurs, barres, donut charts | 6s | 1920x1080 |
-| `Ex6-2-ArticleToVideo` | Points clés d'article → vidéo | 9s | 1920x1080 |
-| `Dev-Logo` | Logo seul pour tests | 5s | 1920x1080 |
-| `Infographie-EvalWorkflow` | Workflow évaluations (slides) | 38s | 1920x1080 |
-| `Infographie-EvalFlow` | Workflow évaluations V1 (flow) | 15s | 1080x1080 |
-| `Infographie-EvalFlowV2` | Workflow évaluations V2 (animé) | 20s | 1080x1080 |
-| `Tutorial-PEB-August` | Tutoriel PEB avec avatar August | 28s | 1920x1080 |
-| `Tutorial-PEB-Nicolas` | Tutoriel PEB avec avatar perso | 33s | 1920x1080 |
-| `Tutorial-PEB-PRO` | Tutoriel PEB version cinématique | 33s | 1920x1080 |
-| `LinkedIn-Showcase` | Montage V1 (16:9) | ~2min | 1920x1080 |
-| `LinkedIn-Showcase-V2` | Montage V2 complet (carré) | ~2min16s | 1080x1080 |
+| ID                         | Description                          | Durée    | Format    |
+| -------------------------- | ------------------------------------ | -------- | --------- |
+| `Ex1-1-HelloWorld`         | Template avec badge animé et musique | 5s       | 1920x1080 |
+| `Ex1-2-CounterComparison`  | 4 compteurs avec easings différents  | 4s       | 1920x1080 |
+| `Ex2-1-Slideshow`          | 3 slides avec transitions fade       | 5s       | 1920x1080 |
+| `Ex2-2-VideoTemplate`      | Template Intro/Contenu/Outro         | 7s       | 1920x1080 |
+| `Ex3-1-ImageShowcase`      | Ken Burns effect sur 3 images        | 7.6s     | 1920x1080 |
+| `Ex4-1-WordByWord`         | Texte mot par mot style TikTok       | 5s       | 1920x1080 |
+| `Ex4-2-AnimatedQuote`      | Citation animée style LinkedIn       | 6s       | 1080x1080 |
+| `Ex5-1-BrandKit`           | Palette couleurs, typos, logo        | 6s       | 1920x1080 |
+| `Ex5-2-LowerThirds`        | 3 variantes de bandeaux nom/titre    | 10s      | 1920x1080 |
+| `Ex6-1-AnimatedStats`      | Compteurs, barres, donut charts      | 6s       | 1920x1080 |
+| `Ex6-2-ArticleToVideo`     | Points clés d'article → vidéo        | 9s       | 1920x1080 |
+| `Dev-Logo`                 | Logo seul pour tests                 | 5s       | 1920x1080 |
+| `Infographie-EvalWorkflow` | Workflow évaluations (slides)        | 38s      | 1920x1080 |
+| `Infographie-EvalFlow`     | Workflow évaluations V1 (flow)       | 15s      | 1080x1080 |
+| `Infographie-EvalFlowV2`   | Workflow évaluations V2 (animé)      | 20s      | 1080x1080 |
+| `Tutorial-PEB-August`      | Tutoriel PEB avec avatar August      | 28s      | 1920x1080 |
+| `Tutorial-PEB-Nicolas`     | Tutoriel PEB avec avatar perso       | 33s      | 1920x1080 |
+| `Tutorial-PEB-PRO`         | Tutoriel PEB version cinématique     | 33s      | 1920x1080 |
+| `LinkedIn-Showcase`        | Montage V1 (16:9)                    | ~2min    | 1920x1080 |
+| `LinkedIn-Showcase-V2`     | Montage V2 complet (carré)           | ~2min16s | 1080x1080 |
 
 ---
 
 ## Exercices - Progression
 
 ### Niveau 1 - Bases (`ex1-basics/`)
+
 - [x] **Ex1-1-HelloWorld** : Badge animé, timing ajusté, musique de fond
 - [x] **Ex1-2-CounterComparison** : Comparaison des easings
 
 ### Niveau 2 - Séquencement (`ex2-sequencing/`)
+
 - [x] **Ex2-1-Slideshow** : 3 slides avec transitions fade
 - [x] **Ex2-2-VideoTemplate** : Template Intro/Contenu/Outro réutilisable
 
 ### Niveau 3 - Média (`ex3-media/`)
+
 - [x] **Ex3-1-ImageShowcase** : Ken Burns effect (zoomIn, zoomOut, panRight)
 - [ ] **Ex3-2-VideoOverlay** : Vidéo de fond + texte animé
 
 ### Niveau 4 - Texte (`ex4-text/`)
+
 - [x] **Ex4-1-WordByWord** : Texte mot par mot style TikTok
 - [x] **Ex4-2-AnimatedQuote** : Citation animée format LinkedIn (1080x1080)
 
 ### Niveau 5 - Branding (`ex5-branding/`)
+
 - [x] **Ex5-1-BrandKit** : Palette couleurs, typographies, logo
 - [x] **Ex5-2-LowerThirds** : Bandeaux animés (3 variantes)
 - **Fichier clé** : `brandConfig.ts` - Configuration centralisée réutilisable
 
 ### Niveau 6 - Infographies (`ex6-infographics/`)
+
 - [x] **Ex6-1-AnimatedStats** : Compteurs, barres de progression, donut charts
 - [x] **Ex6-2-ArticleToVideo** : Template article → vidéo infographique
 
-### Niveau 7 - Text-to-Speech (`ex7-tts/`) - À venir
-- [ ] **Ex7-1-TTSBasic** : Intégration ElevenLabs/OpenAI TTS
-- [ ] **Ex7-2-SyncedCaptions** : Sous-titres synchronisés mot par mot
+### Niveau 7 - AWS Lambda (`ex8-lambda/`) - À venir
 
-### Niveau 8 - AWS Lambda (`ex8-lambda/`) - À venir
 - [ ] **Ex8-1-LambdaSetup** : Config AWS, déploiement
 - [ ] **Ex8-2-CloudRender** : Rendu vidéo via Lambda + S3
 - [ ] **Ex8-3-VideoAPI** : API POST → vidéo générée
@@ -167,14 +173,17 @@ npx remotion still Ex1-1-HelloWorld output.png --frame=0
 ## Concepts clés par exercice
 
 ### Niveau 4 - Texte
+
 - **WordByWord** : Calcul du mot actif basé sur `frame / framesPerWord`
 - **AnimatedQuote** : Animation ligne par ligne avec délai progressif
 
 ### Niveau 5 - Branding
+
 - **brandConfig.ts** : Couleurs, fonts, espacements, durées centralisés
 - **LowerThirds** : Composant réutilisable avec prop `variant`
 
 ### Niveau 6 - Infographies
+
 - **AnimatedCounter** : `interpolate()` avec `Easing.out(Easing.cubic)`
 - **DonutChart** : SVG avec `strokeDasharray` et `strokeDashoffset` animés
 - **ArticleToVideo** : Structure Intro → Points → Outro avec `<Sequence>`
@@ -184,12 +193,14 @@ npx remotion still Ex1-1-HelloWorld output.png --frame=0
 ## Règles Remotion
 
 ### À FAIRE
+
 - `useCurrentFrame()` pour toutes les animations
 - `staticFile()` pour les assets du dossier `public/`
 - `random(seed)` pour la randomisation (déterministe)
 - `layout="none"` sur `<Sequence>` si positionnement custom
 
 ### À NE PAS FAIRE
+
 - `Math.random()` - interdit (non déterministe)
 - CSS transitions/animations
 - IDs de composition avec des points (utiliser tirets)
@@ -202,11 +213,11 @@ npx remotion still Ex1-1-HelloWorld output.png --frame=0
 
 Le module `infographies/` contient des visualisations de workflows techniques :
 
-| Composition | Description | Format | Duree |
-|-------------|-------------|--------|-------|
-| `Infographie-EvalWorkflow` | Workflow complet avec sections | 1920x1080 | 38s |
-| `Infographie-EvalFlow` | Diagramme de flux V1 | 1080x1080 | 15s |
-| `Infographie-EvalFlowV2` | Diagramme de flux V2 (dark) | 1080x1080 | 20s |
+| Composition                | Description                    | Format    | Duree |
+| -------------------------- | ------------------------------ | --------- | ----- |
+| `Infographie-EvalWorkflow` | Workflow complet avec sections | 1920x1080 | 38s   |
+| `Infographie-EvalFlow`     | Diagramme de flux V1           | 1080x1080 | 15s   |
+| `Infographie-EvalFlowV2`   | Diagramme de flux V2 (dark)    | 1080x1080 | 20s   |
 
 ## Workflow visualise
 
@@ -217,6 +228,7 @@ Scanner → N8N → S3 → Lambda → Analysis → Dashboard
 ```
 
 **Services representes :**
+
 - Scanner (violet) - Numerisation
 - N8N (rose) - Automation
 - S3 (vert) - Stockage AWS
@@ -231,11 +243,11 @@ Documentation : [`infographies/INFOGRAPHIES.md`](remotion-app/src/infographies/I
 
 Les skills sont dans `.claude/skills/` :
 
-| Skill | Description |
-|-------|-------------|
-| `remotion` | Best practices Remotion (animations, séquencement, audio, etc.) |
-| `elevenlabs` | Génération de voix AI pour voiceovers |
-| `heygen` | Création de vidéos avec avatars AI |
+| Skill        | Description                                                     |
+| ------------ | --------------------------------------------------------------- |
+| `remotion`   | Best practices Remotion (animations, séquencement, audio, etc.) |
+| `elevenlabs` | Génération de voix AI pour voiceovers                           |
+| `heygen`     | Création de vidéos avec avatars AI                              |
 
 ---
 
@@ -246,17 +258,18 @@ Les skills sont dans `.claude/skills/` :
 ## Vue d'ensemble
 
 Module combinant :
+
 - **HeyGen** : Génération vidéo avatar (stock ou personnalisé, voix clonée)
 - **OpenAI Whisper** : Transcription avec timestamps mot par mot
 - **Remotion** : Composition finale avec infographies synchronisées
 
 ## Compositions disponibles
 
-| ID | Description | Avatar | Durée |
-|----|-------------|--------|-------|
-| `Tutorial-PEB-August` | Split-screen classique | August (stock) | 28s |
-| `Tutorial-PEB-Nicolas` | Fond sombre assorti | Nicolas (perso) | 33s |
-| `Tutorial-PEB-PRO` | Version cinématique | Nicolas (perso) | 33s |
+| ID                     | Description            | Avatar          | Durée |
+| ---------------------- | ---------------------- | --------------- | ----- |
+| `Tutorial-PEB-August`  | Split-screen classique | August (stock)  | 28s   |
+| `Tutorial-PEB-Nicolas` | Fond sombre assorti    | Nicolas (perso) | 33s   |
+| `Tutorial-PEB-PRO`     | Version cinématique    | Nicolas (perso) | 33s   |
 
 ## Workflow de création
 
@@ -281,11 +294,11 @@ npx remotion render Tutorial-PEB-PRO out/tutorial-pro.mp4
 
 Copier `.env.example` vers `.env.local` et ajouter les clés :
 
-| API | Variable | Free tier |
-|-----|----------|-----------|
-| HeyGen | `HEYGEN_API_KEY` | 3 vidéos/mois |
-| OpenAI | `OPENAI_API_KEY` | Pay-per-use (~$0.006/min) |
-| ElevenLabs | `ELEVENLABS_API_KEY` | 10,000 chars/mois |
+| API        | Variable             | Free tier                 |
+| ---------- | -------------------- | ------------------------- |
+| HeyGen     | `HEYGEN_API_KEY`     | 3 vidéos/mois             |
+| OpenAI     | `OPENAI_API_KEY`     | Pay-per-use (~$0.006/min) |
+| ElevenLabs | `ELEVENLABS_API_KEY` | 10,000 chars/mois         |
 
 ## Fonctionnalités PRO
 
@@ -306,9 +319,9 @@ Le module `showcase/` contient les montages video finaux presentant le travail a
 
 ## Compositions disponibles
 
-| ID | Description | Format | Duree |
-|----|-------------|--------|-------|
-| `LinkedIn-Showcase` | Montage V1 (16:9) | 1920x1080 | ~2min |
+| ID                     | Description                 | Format    | Duree    |
+| ---------------------- | --------------------------- | --------- | -------- |
+| `LinkedIn-Showcase`    | Montage V1 (16:9)           | 1920x1080 | ~2min    |
 | `LinkedIn-Showcase-V2` | Montage V2 (carre, complet) | 1080x1080 | ~2min16s |
 
 ## LinkedIn Showcase V2 - Features
@@ -316,28 +329,26 @@ Le module `showcase/` contient les montages video finaux presentant le travail a
 La version V2 est le montage final complet avec :
 
 ### Audio ducking automatique
+
 - Musique de fond a 25% par defaut
 - Baisse a 10% quand une video a du son (avatar, SFX)
 - Configuration via `AUDIO_DUCK_SEGMENTS`
 
 ### Chapitres avec barre de progression
+
 - 8 chapitres : Intro, HelloWorld, Sequencing, UVCW, Tutorial, Infographies, ChatExchange, Outro
 - Barre de progression multicolore en bas
 
-### VideoFrame avec mode fullscreen
-```tsx
-<VideoFrame videoSrc="video.mp4" fullscreen={true} />
-```
-- `fullscreen={true}` : Video en plein ecran (objectFit: cover)
-- `fullscreen={false}` : Letterbox avec fond mauve (objectFit: contain)
-
 ### ChatExchange - Animation conversation
+
 Montre l'echange conversationnel avec Claude Code :
+
 - Messages animes avec spring
 - Indicateur de frappe "..."
 - Style chat avec bulles
 
 ### Outils presentes
+
 1. **Claude Code** - Assistant IA CLI
 2. **Skills.sh** - Marketplace de skills
 3. **Remotion** - Framework video React
@@ -349,6 +360,7 @@ Montre l'echange conversationnel avec Claude Code :
 ## Notes de Session
 
 ### 28/01/2026
+
 - **LinkedIn Showcase V2** finalise
   - Format carre 1080x1080 pour LinkedIn
   - Audio ducking automatique (25% → 10%)
@@ -363,6 +375,7 @@ Montre l'echange conversationnel avec Claude Code :
   - Verification securite OK (pas de cles API)
 
 ### 27/01/2026 (nuit)
+
 - **Module Tutorial PEB** complet
   - Génération vidéo HeyGen avec avatar stock (August) et personnalisé (Nicolas)
   - Transcription OpenAI Whisper avec timestamps mot par mot
@@ -376,16 +389,18 @@ Montre l'echange conversationnel avec Claude Code :
   - `list-avatars.js`, `list-voices.js` : Exploration API
 
 ### 27/01/2026 (soir)
+
 - **Restructuration projet** pour GitHub
   - README.md complet avec structure, modules pro, demarrage rapide
   - INFOGRAPHIES.md cree pour documenter le module infographies
   - CLAUDE.md mis a jour avec section infographies
-  - Nettoyage fichiers de test (test-*.png)
+  - Nettoyage fichiers de test (test-\*.png)
 - **Test UVCW** : Article 9653 converti en video avec succes
   - Matiere "insertion" (E34F57) correctement mappee
   - Ken Burns, word-by-word, progress bar fonctionnels
 
 ### 27/01/2026
+
 - **Module Infographies** cree (`src/infographies/`)
   - `Infographie-EvalWorkflow` : Version slides (1920x1080, 38s)
   - `Infographie-EvalFlowV2` : Version flow anime (1080x1080, 20s, fond sombre)
@@ -393,12 +408,14 @@ Montre l'echange conversationnel avec Claude Code :
 - Nettoyage des dossiers dupliques (.agent, .agents, skills/)
 
 ### 27/01/2026 (matin)
+
 - **Bibliotheque de sons partagee** creee (`src/shared/sounds/`)
   - 27 fichiers audio (42MB) - Envato Elements
   - 7 presets : cinematic, corporate, social, minimal, sfxOnly, educational, silent
 - Module UVCW avec sound design complet
 
 ### 24/01/2026
+
 - Exercices 1.1 a 6.2 completes
 - 12 compositions fonctionnelles
 - Ken Burns, WordByWord, LowerThirds, AnimatedStats implementes

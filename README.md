@@ -15,31 +15,32 @@ Ce repo documente mon apprentissage de Remotion avec **Claude Code** + le skill 
 
 ### Demos video
 
-| Demo | Description | Lien |
-|------|-------------|------|
-| **LinkedIn Showcase** | Montage complet de tout ce qui a ete cree | [Voir sur LinkedIn](https://www.linkedin.com/posts/nicolasdeswysen) |
-| **UVCW Article Video** | Article transforme en video sociale | [Demo YouTube](https://youtu.be/example) |
-| **Tutorial PEB PRO** | Avatar IA + infographies synchronisees | [Demo YouTube](https://youtu.be/example) |
+| Demo                   | Description                               | Lien                                                                |
+| ---------------------- | ----------------------------------------- | ------------------------------------------------------------------- |
+| **LinkedIn Showcase**  | Montage complet de tout ce qui a ete cree | [Voir sur LinkedIn](https://www.linkedin.com/posts/nicolasdeswysen) |
+| **UVCW Article Video** | Article transforme en video sociale       | [Demo YouTube](https://youtu.be/example)                            |
+| **Tutorial PEB PRO**   | Avatar IA + infographies synchronisees    | [Demo YouTube](https://youtu.be/example)                            |
 
-> *Note : Remplacez les liens par vos URLs reelles apres upload*
+> _Note : Remplacez les liens par vos URLs reelles apres upload_
 
 ---
 
 ## Stack utilisee
 
-| Outil | Role |
-|-------|------|
-| **Remotion** | Framework React pour videos programmatiques |
-| **Claude Code** | Assistant IA pour coder en conversationnel |
-| **Skills.sh** | Best practices Remotion pour Claude |
-| **ElevenLabs** | Generation de voix IA |
-| **HeyGen** | Avatars video IA |
+| Outil           | Role                                        |
+| --------------- | ------------------------------------------- |
+| **Remotion**    | Framework React pour videos programmatiques |
+| **Claude Code** | Assistant IA pour coder en conversationnel  |
+| **Skills.sh**   | Best practices Remotion pour Claude         |
+| **ElevenLabs**  | Generation de voix IA                       |
+| **HeyGen**      | Avatars video IA                            |
 
 ---
 
 ## Ce que ce projet demontre
 
 ### Niveau 1-6 : Exercices d'apprentissage
+
 12 compositions progressives pour maitriser Remotion :
 
 - **Animations** : `interpolate()`, `spring()`, easings
@@ -50,19 +51,25 @@ Ce repo documente mon apprentissage de Remotion avec **Claude Code** + le skill 
 - **Infographies** : Compteurs, graphiques, data viz
 
 ### Module UVCW : JSON → Video
+
 Transforme des articles en videos sociales automatiquement :
+
 - 46 matieres avec couleurs/pictos
 - 4 templates (Post, Video, Hook, Ultimate)
 - Sound design avec 7 presets
 
 ### Module Tutorial : Avatar IA + Infographies
+
 Combine HeyGen (avatar) + Whisper (transcription) + Remotion :
+
 - Avatar flottant repositionnable
 - Mots-cles synchronises a la voix
 - Effets particules et transitions
 
 ### LinkedIn Showcase V2
+
 Montage final presentant tout le travail :
+
 - Audio ducking automatique
 - Chapitres avec barre de progression
 - Animation "chat" montrant l'echange avec Claude Code
@@ -123,6 +130,7 @@ remotion/
 ## Demarrage rapide
 
 ### 1. Cloner et installer
+
 ```bash
 git clone https://github.com/kikounicou/remotion.git
 cd remotion/remotion-app
@@ -130,18 +138,23 @@ npm install
 ```
 
 ### 2. Lancer le studio
+
 ```bash
 npm run dev
 ```
+
 Ouvrez **http://localhost:3000** et explorez les compositions dans la sidebar.
 
 ### 3. Tester une composition
+
 Dans le Studio Remotion, selectionnez une composition :
+
 - `Ex1-1-HelloWorld` - Pour commencer
 - `LinkedIn-Showcase-V2` - Pour voir le resultat final
 - `UVCW-ArticleVideo-Ultimate-PanLeft` - Pour la demo JSON → Video
 
 ### 4. Rendre une video
+
 ```bash
 # Exercice simple
 npx remotion render Ex1-1-HelloWorld output.mp4
@@ -160,60 +173,69 @@ npx remotion render UVCW-ArticleVideo-Ultimate-PanLeft uvcw.mp4
 Suivez les exercices dans l'ordre pour apprendre progressivement :
 
 ### Niveau 1 - Les Bases
-| Composition | Concepts |
-|-------------|----------|
-| `Ex1-1-HelloWorld` | `useCurrentFrame()`, `interpolate()`, `spring()` |
-| `Ex1-2-CounterComparison` | `Easing.in()`, `Easing.out()`, `Easing.inOut()` |
+
+| Composition               | Concepts                                         |
+| ------------------------- | ------------------------------------------------ |
+| `Ex1-1-HelloWorld`        | `useCurrentFrame()`, `interpolate()`, `spring()` |
+| `Ex1-2-CounterComparison` | `Easing.in()`, `Easing.out()`, `Easing.inOut()`  |
 
 ### Niveau 2 - Sequencement
-| Composition | Concepts |
-|-------------|----------|
-| `Ex2-1-Slideshow` | `<TransitionSeries>`, `fade()` |
+
+| Composition           | Concepts                        |
+| --------------------- | ------------------------------- |
+| `Ex2-1-Slideshow`     | `<TransitionSeries>`, `fade()`  |
 | `Ex2-2-VideoTemplate` | Composants reutilisables, props |
 
 ### Niveau 3 - Media
-| Composition | Concepts |
-|-------------|----------|
+
+| Composition           | Concepts                      |
+| --------------------- | ----------------------------- |
 | `Ex3-1-ImageShowcase` | `<Img>`, Ken Burns (zoom/pan) |
 
 ### Niveau 4 - Texte
-| Composition | Concepts |
-|-------------|----------|
-| `Ex4-1-WordByWord` | Animation sequentielle de mots |
-| `Ex4-2-AnimatedQuote` | Typography, timing par ligne |
+
+| Composition           | Concepts                       |
+| --------------------- | ------------------------------ |
+| `Ex4-1-WordByWord`    | Animation sequentielle de mots |
+| `Ex4-2-AnimatedQuote` | Typography, timing par ligne   |
 
 ### Niveau 5 - Branding
-| Composition | Concepts |
-|-------------|----------|
-| `Ex5-1-BrandKit` | Config centralisee (`brandConfig.ts`) |
-| `Ex5-2-LowerThirds` | Composants pro, variantes |
+
+| Composition         | Concepts                              |
+| ------------------- | ------------------------------------- |
+| `Ex5-1-BrandKit`    | Config centralisee (`brandConfig.ts`) |
+| `Ex5-2-LowerThirds` | Composants pro, variantes             |
 
 ### Niveau 6 - Infographies
-| Composition | Concepts |
-|-------------|----------|
-| `Ex6-1-AnimatedStats` | Compteurs, barres, donut charts |
-| `Ex6-2-ArticleToVideo` | Structure Intro/Points/Outro |
+
+| Composition            | Concepts                        |
+| ---------------------- | ------------------------------- |
+| `Ex6-1-AnimatedStats`  | Compteurs, barres, donut charts |
+| `Ex6-2-ArticleToVideo` | Structure Intro/Points/Outro    |
 
 ---
 
 ## Configuration optionnelle
 
 ### Sons (gratuit)
+
 Les sons sont optionnels. Pour les ajouter :
+
 1. Voir [SOUNDS-SETUP.md](SOUNDS-SETUP.md)
 2. Telecharger depuis Pixabay (gratuit)
 
 ### APIs externes (pour le module Tutorial)
+
 ```bash
 cd remotion-app
 cp .env.example .env.local
 # Editer .env.local avec vos cles
 ```
 
-| API | Free tier |
-|-----|-----------|
+| API                                  | Free tier              |
+| ------------------------------------ | ---------------------- |
 | [ElevenLabs](https://elevenlabs.io/) | 10,000 caracteres/mois |
-| [HeyGen](https://www.heygen.com/) | 1 video gratuite |
+| [HeyGen](https://www.heygen.com/)    | 1 video gratuite       |
 
 ---
 
@@ -221,11 +243,11 @@ cp .env.example .env.local
 
 Ce projet inclut des skills pour Claude Code dans `.claude/skills/` :
 
-| Skill | Description |
-|-------|-------------|
-| `remotion` | Patterns d'animation, audio, composants |
-| `elevenlabs` | Generation de voiceovers IA |
-| `heygen` | Creation de videos avec avatars IA |
+| Skill        | Description                             |
+| ------------ | --------------------------------------- |
+| `remotion`   | Patterns d'animation, audio, composants |
+| `elevenlabs` | Generation de voiceovers IA             |
+| `heygen`     | Creation de videos avec avatars IA      |
 
 Pour utiliser ces skills avec Claude Code, installez-les via [skills.sh](https://skills.sh).
 
@@ -235,7 +257,7 @@ Pour utiliser ces skills avec Claude Code, installez-les via [skills.sh](https:/
 
 - [Documentation Remotion](https://www.remotion.dev/docs)
 - [Remotion Skill sur skills.sh](https://skills.sh/remotion-dev/skills/remotion-best-practices)
-- [Claude Code](https://claude.ai/claude-code)
+- [Claude Code](https://code.claude.com/docs)
 - [Pixabay - Sons gratuits](https://pixabay.com/sound-effects/)
 
 ---
@@ -243,7 +265,9 @@ Pour utiliser ces skills avec Claude Code, installez-les via [skills.sh](https:/
 ## FAQ
 
 ### Comment Claude Code m'a aide ?
+
 J'ai utilise Claude Code en mode conversationnel pour :
+
 - Generer le code des compositions
 - Debugger les problemes (ecrans noirs, audio, etc.)
 - Implementer des features complexes (audio ducking, Ken Burns)
@@ -252,9 +276,11 @@ J'ai utilise Claude Code en mode conversationnel pour :
 Le skill `remotion` lui donne les best practices specifiques a Remotion.
 
 ### Puis-je utiliser ce code ?
+
 Oui, licence MIT. Les sons doivent etre telecharges separement (Pixabay, libre de droits).
 
 ### Comment contribuer ?
+
 Issues et PRs bienvenus ! Voir les exercices `ex7-tts` et `ex8-lambda` encore a faire.
 
 ---
