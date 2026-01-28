@@ -9,19 +9,14 @@
 
 ---
 
-## Ce que j'ai construit en une journee avec Claude Code
-
 Ce repo documente mon apprentissage de Remotion avec **Claude Code** + le skill [Remotion Best Practices](https://skills.sh/remotion-dev/skills/remotion-best-practices).
 
 ### Demos video
 
-| Demo                   | Description                               | Lien                                                                |
-| ---------------------- | ----------------------------------------- | ------------------------------------------------------------------- |
-| **LinkedIn Showcase**  | Montage complet de tout ce qui a ete cree | [Voir sur LinkedIn](https://www.linkedin.com/posts/nicolasdeswysen) |
-| **UVCW Article Video** | Article transforme en video sociale       | [Demo YouTube](https://youtu.be/example)                            |
-| **Tutorial PEB PRO**   | Avatar IA + infographies synchronisees    | [Demo YouTube](https://youtu.be/example)                            |
-
-> _Note : Remplacez les liens par vos URLs reelles apres upload_
+| Demo                  | Description                               | Lien                                                                                                                                |
+| --------------------- | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **LinkedIn Showcase** | Montage complet de tout ce qui a ete cree | [Voir sur LinkedIn](https://www.linkedin.com/posts/deswysen_les-skills-claude-code-en-action-test-ugcPost-7422204457221791744-LJCl) |
+|  |
 
 ---
 
