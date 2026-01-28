@@ -16,7 +16,7 @@ Ce repo documente mon apprentissage de Remotion avec **Claude Code** + le skill 
 | Demo                  | Description                               | Lien                                                                                                                                |
 | --------------------- | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | **LinkedIn Showcase** | Montage complet de tout ce qui a ete cree | [Voir sur LinkedIn](https://www.linkedin.com/posts/deswysen_les-skills-claude-code-en-action-test-ugcPost-7422204457221791744-LJCl) |
-|  |
+|                       |
 
 ---
 
@@ -296,4 +296,4 @@ MIT - Libre d'utilisation, modification et distribution.
 
 ---
 
-_Cree en une journee avec Claude Code + Remotion_
+_Cree avec Claude Code + Remotion_
